@@ -10,13 +10,13 @@
 
             // route for the home page
             .when('/', {
-                templateUrl : 'view/home.html',
+                templateUrl : 'views/home.html',
                 controller  : 'mainController'
             })
 
             // route for the about page
             .when('/about', {
-                templateUrl : 'view/about.html',
+                templateUrl : 'views/about.html',
                 controller  : 'aboutController'
             })
 
