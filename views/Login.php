@@ -10,6 +10,8 @@
     if(!empty($_POST)) 
     { 
         // This query retreives the user's information from the database using the provided username. 
+		
+		
         $query = " 
             SELECT 
                 id, 
@@ -141,6 +143,7 @@
 
 <!-- Select if used for more then one school -->
 <!-- note we made fake school names -->
+<!--
 <select name="School">
 <option value="Hardin Valley">Hardin Valley</option>
 <option value="Th0r's Crib">Th0r's Crib</option>
@@ -148,7 +151,7 @@
 <option value="Color School">Color School</option>
 </select>
 <br> <rt> Select School </rt> <br>
-
+-->
 <!-- Button used for Submitting to server side code -->
 <input type="submit" value="Login">
 

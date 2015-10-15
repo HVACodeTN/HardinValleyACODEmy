@@ -2,6 +2,8 @@
 <?php
 
 //variables that define the connection information for MYSQL Database
+
+//Jackson define Variables from the database here and replace basic ones
 $username = "dbusername";
 $password = "dbpassword";
 $school = "dbschool";
@@ -14,8 +16,12 @@ $options = array(PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES utf8');
 try
 {
 	
+	
 	//opens connection to PDO
 	
+//Jackson use line below to connect the common.php to the database/server (common.php is already linked to the other phps)
+//Look at all querys for each php and change variable as needed for the database
+//report any errors if you feel like testing
 $db = new PDO("mysql:host={$host};dbname={$dbname};charset=utf8", $username, $password, $options); 
     } 
     catch(PDOException $ex)
