@@ -1,7 +1,7 @@
 <?php
 
     // First execute common code to connection to the database and start the session 
-    require("common.php"); 
+    require("file:///C|/Users/tym/Desktop/Tic-Tac-Toe/common.php"); 
      
     // This variable is used to re-display the username in the login form if they fail to enter the correct password.
     $submitted_username = ''; 
@@ -119,7 +119,7 @@
 <body>
 
 
-<form action="action_login.php" method="POST">
+<form action="file:///C|/Users/tym/Desktop/Tic-Tac-Toe/action_login.php" method="POST">
 
 
 <!-- Center everything within the from -->
@@ -141,6 +141,7 @@
 
 <!-- Select if used for more then one school -->
 <!-- note we made fake school names -->
+<!--
 <select name="School">
 <option value="Hardin Valley">Hardin Valley</option>
 <option value="Th0r's Crib">Th0r's Crib</option>
@@ -148,12 +149,12 @@
 <option value="Color School">Color School</option>
 </select>
 <br> <rt> Select School </rt> <br>
-
+-->
 <!-- Button used for Submitting to server side code -->
 <input type="submit" value="Login">
 
 <!-- Hyperlink to Signup page -->
-<rt><p>Click <a href="Register.php">Sign up</a> to Register</p></rt>
+<rt><p>Click <a href="file:///C|/Users/tym/Desktop/Tic-Tac-Toe/Register.php">Sign up</a> to Register</p></rt>
 
 <!-- end field -->
 </fieldset>
