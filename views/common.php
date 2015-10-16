@@ -4,10 +4,10 @@
 //variables that define the connection information for MYSQL Database
 
 //Jackson define Variables from the database here and replace basic ones
-$username = "dbusername";
-$password = "dbpassword";
-$school = "dbschool";
-$host = "localhost";
+$username = "a72e7f8066aa";
+$password = "025449556a1df619";
+$school = "dbschool"; //TODO: what are we going to do with the school field?
+$host = "localhost"; //TODO: is this the correct host?
 
 //comunicates that we are using UTF-8
 //stores wide varienty of special characters
