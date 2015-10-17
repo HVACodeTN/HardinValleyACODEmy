@@ -33,7 +33,7 @@
             $query = " 
                 SELECT 
                     1 
-                FROM users 
+                FROM Users 
                 WHERE 
                     email = :email 
             "; 
@@ -119,7 +119,7 @@
         // to update the one record with for the current user. 
         $query .= " 
             WHERE 
-                id = :user_id 
+                UserID = :user_id 
         "; 
          
         try 

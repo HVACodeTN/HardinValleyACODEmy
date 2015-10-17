@@ -21,10 +21,10 @@
     // of the rows from the database table. 
     $query = " 
         SELECT 
-            id, 
-            username, 
+            UserID, 
+            UserName, 
             email 
-        FROM users 
+        FROM Users 
     "; 
      
     try 

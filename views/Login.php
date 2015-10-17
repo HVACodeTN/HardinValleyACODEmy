@@ -14,19 +14,19 @@
 		
         $query = " 
             SELECT 
-                id, 
-                username, 
+                UserID, 
+                UserName, 
                 password, 
                 salt, 
                 email 
-            FROM users 
+            FROM Users 
             WHERE 
-                username = :username 
+                UserName = :UserName 
         "; 
          
         // The parameter values 
         $query_params = array( 
-            ':username' => $_POST['username'] 
+            ':UserName' => $_POST['username'] 
         ); 
          
         try 
