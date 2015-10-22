@@ -1,8 +1,11 @@
 <?php
 
     // First execute common code to connection to the database and start the session 
-    require("common.php"); 
-     
+    require("common.php");
+	
+	 //Privates the page
+    require("private.php");
+	
     // This variable is used to re-display the username in the login form if they fail to enter the correct password.
     $submitted_username = ''; 
      
@@ -114,14 +117,15 @@
 <meta charset="utf-8">
 <title>CodeTn Login Page</title>
 
-<img src="" width="" height="" alt=""> <!-- add logo later -->
+
 
 </head>
 
 <body>
+<img src="../Header.jpg" width="1280" height="427" alt=""/>
+<!-- change logo later to updated verison instead of last year's -->
 
-
-<form action="action_login.php" method="POST">
+<form action="Login.php" method="POST">
 
 
 <!-- Center everything within the from -->
@@ -146,9 +150,9 @@
 <!--
 <select name="School">
 <option value="Hardin Valley">Hardin Valley</option>
-<option value="Th0r's Crib">Th0r's Crib</option>
-<option value="Mr.krabs">Mr.krabs</option>
-<option value="Color School">Color School</option>
+<option value="SchoolA">SchoolA</option>
+<option value="SchoolB">SchoolB</option>
+<option value="SchoolC">SchoolC</option>
 </select>
 <br> <rt> Select School </rt> <br>
 -->
