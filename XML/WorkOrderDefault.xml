@@ -1,0 +1,15 @@
+<Properties>
+  <Property>
+    <Name>Room</Name>
+    <value></value>
+  </Property>
+  <Property>
+    <TimeSubmitted></TimeSubmitted>
+    <value></value>
+  </Property>
+  <Property>
+    <TimeCompleted></TimeCompleted>
+    <value></value>
+  </Property>
+</Properties>
+
