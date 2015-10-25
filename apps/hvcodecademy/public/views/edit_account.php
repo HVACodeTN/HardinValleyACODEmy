@@ -2,7 +2,10 @@
 
     // First we execute our common code to connection to the database and start the session 
     require("common.php"); 
-     
+	
+	//privates the page
+    require("private.php");
+	
     // At the top of the page we check to see whether the user is logged in or not 
     if(empty($_SESSION['user'])) 
     { 
@@ -150,6 +153,10 @@
      
 ?> 
 <h1>Edit Account</h1> 
+
+<!-- add admin only to Admin tab later -->
+<li><a href="../views/memberlist.php"> Admin</a></li>
+
 <form action="edit_account.php" method="post"> 
     Username:<br /> 
     <b><?php echo htmlentities($_SESSION['user']['username'], ENT_QUOTES, 'UTF-8'); ?></b> 
