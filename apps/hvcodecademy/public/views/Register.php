@@ -40,9 +40,9 @@
         $query = " 
             SELECT 
                 1 
-            FROM users 
+            FROM Users 
             WHERE 
-                username = :username 
+                UserName = :UserName 
         "; 
          
         // This contains the definitions for any special tokens that we place in 
@@ -53,7 +53,7 @@
         // For more information on SQL injections, see Wikipedia: 
         // http://en.wikipedia.org/wiki/SQL_Injection 
         $query_params = array( 
-            ':username' => $_POST['username'] 
+            ':UserName' => $_POST['username'] 
         ); 
          
         try 
@@ -85,7 +85,7 @@
         $query = " 
             SELECT 
                 1 
-            FROM users 
+            FROM Users 
             WHERE 
                 email = :email 
         "; 
@@ -116,13 +116,13 @@
         // Again, we are using special tokens (technically called parameters) to 
         // protect against SQL injection attacks. 
         $query = " 
-            INSERT INTO users ( 
-                username, 
+            INSERT INTO Users ( 
+                UserName, 
                 password, 
                 salt, 
                 email 
             ) VALUES ( 
-                :username, 
+                :UserName, 
                 :password, 
                 :salt, 
                 :email 
@@ -160,7 +160,7 @@
         // store the original password; only the hashed version of it.  We do store 
         // the salt (in its plaintext form; this is not a security risk). 
         $query_params = array( 
-            ':username' => $_POST['username'], 
+            ':UserName' => $_POST['username'], 
             ':password' => $password, 
             ':salt' => $salt, 
             ':email' => $_POST['email'] 
