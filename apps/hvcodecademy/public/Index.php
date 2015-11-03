@@ -1,10 +1,10 @@
 <?php
 
 //connects to server
-require("common.php");
+require("./views/common.php");
 
 //privates the page
-require("privte.php");
+require("./views/private.php");
 
 
 
