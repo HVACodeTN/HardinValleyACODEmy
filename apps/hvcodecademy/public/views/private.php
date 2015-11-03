@@ -1,5 +1,5 @@
 <?php 
-/*
+
     // First we execute our common code to connection to the database and start the session 
     require("common.php"); 
      
@@ -22,4 +22,4 @@
 Hello <?php echo htmlentities($_SESSION['user']['username'], ENT_QUOTES, 'UTF-8'); ?>, secret content!<br /> 
 <a href="memberlist.php">Memberlist</a><br /> 
 <a href="edit_account.php">Edit Account</a><br /> 
-<a href="Logout.php">Logout</a> */
+<a href="Logout.php">Logout</a> 
