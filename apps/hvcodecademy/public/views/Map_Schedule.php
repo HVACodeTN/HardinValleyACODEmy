@@ -2,10 +2,11 @@
 
 
     require("common.php");
-
+    require("roomProcessor.php");
+    
     //TODO: Jackson create variable for each room with "TeacherName" + "Room name" from database based on current time.
     // Rooms include All Classrooms, Labs, Workrooms, Multipurpose room, Library, bus duty (It's a place on the map)
-    $D101="TeacherName" + " D101";
+    //$D101="TeacherName" + " D101";
 
     //TODO: Logic to chose Period
     $period = 1;
@@ -17,8 +18,8 @@
             FROM Schedule
             WHERE
                 Period = :Period";
-    $query_params = array( 
-        ':Period' => $period;
+    $query_params = array(
+        ':Period' => $period
     );
 
     $num_results = 0;
@@ -40,15 +41,17 @@
     for ($i=0; $i < $num_results; $i++) { 
         //Process Results
         $row = $stmt->fetch();
+        
         // Use data to create variable for schedule
+        $varName = roomString($row['Room']);
+        echo "hi";
+        global $$varName,$varName;
+        $$varName = $row['Name']; // Takes row and makes it a variable with teacher name in it.
     }
     
     //Put text on map
 
-
-
-
-
+    echo $$varName;
 
 
 
