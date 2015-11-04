@@ -3,8 +3,8 @@
     // First execute common code to connection to the database and start the session 
     require("common.php");
 	
-	 //Privates the page
-    require("private.php");
+	//Privates the page
+    //require("private.php");
 	
     // This variable is used to re-display the username in the login form if they fail to enter the correct password.
     $submitted_username = ''; 
