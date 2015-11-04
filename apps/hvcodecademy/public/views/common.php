@@ -1,4 +1,3 @@
-<!-- Login actived action -->
 <?php
 
 //variables that define the connection information for MYSQL Database
