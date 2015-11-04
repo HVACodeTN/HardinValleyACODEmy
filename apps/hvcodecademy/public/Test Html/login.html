@@ -29,7 +29,7 @@
         
             <div class="navbar-header">
             
-             <img src="Header.jpg" alt="LOGO" height="180" width="1100"/>
+             <img src="Header.jpg" alt="LOGO" height="180" weight="42"/>
               
 
             </div>
@@ -75,7 +75,49 @@
         <div class="container">
         
           <div class="main">
-   
+                <form action="Login.php" method="POST">
+    
+    
+    <!-- Center everything within the from -->
+    <center>
+    
+    <h1>Login</h1>
+    
+    <fieldset>
+    
+    <!-- Username Input -->
+    <p><label for="username">Username:</label>
+    <br>
+    <input type="text" name="username" value="<?php echo $submitted_username; ?>" /> </p>
+    
+    <!-- Password Input -->
+    <p><label for="password">Password:</label>
+    <br>
+    <input type="password" name="password" id="passwordInput" value=""></p>
+    
+    <!-- Select if used for more then one school -->
+    <!-- note we made fake school names -->
+    <!--
+    <select name="School">
+    <option value="Hardin Valley">Hardin Valley</option>
+    <option value="SchoolA">SchoolA</option>
+    <option value="SchoolB">SchoolB</option>
+    <option value="SchoolC">SchoolC</option>
+    </select>
+    <br> <rt> Select School </rt> <br>
+    -->
+    <!-- Button used for Submitting to server side code -->
+    <input type="submit" value="Login">
+    
+    <!-- Hyperlink to Signup page -->
+    <rt><p>Click <a href="Register.php">Here</a> to Register</p></rt>
+    
+    <!-- end field -->
+    </fieldset>
+    
+    </center>
+    
+    </form>
           </div>
             <div class="panel-body">
                                
