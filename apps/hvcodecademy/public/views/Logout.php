@@ -1,4 +1,3 @@
-
 <?php 
 
     // First we execute our common code to connection to the database and start the session 
@@ -10,4 +9,3 @@
     // We redirect them to the login page 
     header("Location: Login.php"); 
     die("Redirecting to: Login.php");
-

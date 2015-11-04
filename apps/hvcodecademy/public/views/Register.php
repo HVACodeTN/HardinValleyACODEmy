@@ -1,4 +1,3 @@
-
 <?php 
 
     // First execute common code to connection to the database and start the session  

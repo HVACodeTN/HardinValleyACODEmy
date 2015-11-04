@@ -1,4 +1,3 @@
-<!-- Login actived action -->
 <?php
 
 //variables that define the connection information for MYSQL Database
@@ -6,6 +5,7 @@
 //Jackson define Variables from the database here and replace basic ones
 $username = "a72e7f8066aa";
 $password = "025449556a1df619";
+$dbname = "hvcodecademy";
 $school = "dbschool"; //TODO: what are we going to do with the school field?
 $host = "localhost"; //TODO: is this the correct host?
 
@@ -37,6 +37,7 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     // represents the name of the column in your database. 
 																			// NOTE THIS MAY NEED TO BE CHANGED TO NOT BE STRING INDEXES
  $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+
 
 
 
