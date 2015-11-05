@@ -14,7 +14,8 @@
     //Create Query
     $query = "SELECT
                 Name,
-                Room
+                Room,
+                RoomGroup
             FROM Schedule
             WHERE
                 Period = :Period";
@@ -22,13 +23,14 @@
         ':Period' => $period
     );
 
+    
     $num_results = 0;
     try 
     { 
         // Execute the query against the database 
         $stmt = $db->prepare($query); 
         $result = $stmt->execute($query_params);
-        $num_results = $result->num_rows;
+        $num_results = $stmt->rowCount();
     } 
     catch(PDOException $ex) 
     { 
@@ -43,16 +45,13 @@
         $row = $stmt->fetch();
         
         // Use data to create variable for schedule
-        $varName = roomString($row['Room']);
-        echo "hi";
+        $varName = roomString($row['RoomGroup'],$row['Room']);
         global $$varName,$varName;
         $$varName = $row['Name']; // Takes row and makes it a variable with teacher name in it.
+        echo $varName.": ".$$varName."\n"; //FIXME: Temp debug echo
     }
     
     //Put text on map
-
-    echo $$varName;
-
 
 
 ?>
