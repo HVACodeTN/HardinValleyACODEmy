@@ -70,17 +70,70 @@
          
         // The fetch() method returns an array representing the "next" row from 
         // the selected results, or false if there are no more rows to fetch. 
-        $row = $stmt->fetch(); 
+        $getUserGet = $stmt->fetch();
+         
          
         // If a row was returned, then we know a matching username was found in 
         // the database already and we should not allow the user to continue. 
-        if($row) 
+        if($getUserGet) 
         { 
             die("This username is already in use"); 
+        }
+        
+        $getNewUserID = false;
+        while(!$getNewUserID)
+        {
+        $query3 = " 
+            SELECT 
+                1 
+            FROM Users 
+            WHERE 
+                UserID = :UserID 
+        "; 
+         
+        // This contains the definitions for any special tokens that we place in 
+        // our SQL query.  In this case, we are defining a value for the token 
+        // :username.  It is possible to insert $_POST['username'] directly into 
+        // your $query string; however doing so is very insecure and opens your 
+        // code up to SQL injection exploits.  Using tokens prevents this. 
+        // For more information on SQL injections, see Wikipedia: 
+        // http://en.wikipedia.org/wiki/SQL_Injection 
+        $UserID = mt_rand();
+        $query3_params = array( 
+            ':UserID' =>  $UserID
+        ); 
+         
+        try 
+        { 
+            // These two statements run the query against your database table. 
+            $stmt3 = $db->prepare($query3); 
+            $result3 = $stmt3->execute($query3_params);
+            $getNewUserID = true;
         } 
+        catch(PDOException $ex) 
+        { 
+            $getNewUserID = false;
+            // Note: On a production website, you should not output $ex->getMessage(). 
+            // It may provide an attacker with helpful information about your code.  
+            //die("Failed to run query: " . $ex->getMessage()); 
+        }
+        } 
+         
+        // The fetch() method returns an array representing the "next" row from 
+        // the selected results, or false if there are no more rows to fetch. 
+        $getUserGet = $stmt->fetch();
+         
+         
+        // If a row was returned, then we know a matching username was found in 
+        // the database already and we should not allow the user to continue. 
+        if($getUserGet) 
+        { 
+            die("This username is already in use"); 
+        }  
          
         // Now we perform the same type of check for the email address, in order 
         // to ensure that it is unique. 
+        /*
         $query = " 
             SELECT 
                 1 
@@ -92,7 +145,7 @@
         $query_params = array( 
             ':email' => $_POST['email'] 
         ); 
-         
+        
         try 
         { 
             $stmt = $db->prepare($query); 
@@ -110,23 +163,35 @@
         { 
             die("This email address is already registered"); 
         } 
-         
+        */ 
         // An INSERT query is used to add new rows to a database table. 
         // Again, we are using special tokens (technically called parameters) to 
         // protect against SQL injection attacks. 
         $query = " 
             INSERT INTO Users ( 
                 UserName, 
-                password, 
-                salt, 
-                email 
+                UserID, 
+                AccoutType,
+                Properties
             ) VALUES ( 
                 :UserName, 
-                :password, 
-                :salt, 
-                :email 
+                :UserID, 
+                :AccountType, 
+                :Properties 
             ) 
         "; 
+         
+         $query2 = " 
+            INSERT INTO Passwords ( 
+                UserID, 
+                Password, 
+                salt
+            ) VALUES (  
+                :UserID,
+                :Password, 
+                :salt 
+            ) 
+        ";
          
         // A salt is randomly generated here to protect again brute force attacks 
         // and rainbow table attacks.  The following statement generates a hex 
@@ -143,7 +208,7 @@
         // string representing the 32 byte sha256 hash of the password.  The original
         // password cannot be recovered from the hash.  For more information: 
         // http://en.wikipedia.org/wiki/Cryptographic_hash_function 
-        $password = hash('Antman', $_POST['password'] . $salt); 
+        $password = hash('sha256', $_POST['password'] . $salt); 
          
         // Next we hash the hash value 65536 more times.  The purpose of this is to 
         // protect against brute force attacks.  Now an attacker must compute the hash 65537 
@@ -154,22 +219,43 @@
         { 
             $password = hash('sha256', $password . $salt); 
         } 
-         
+        $AccountType = 1;
+        $Properties = "";
+        
         // Here we prepare our tokens for insertion into the SQL query.  We do not 
         // store the original password; only the hashed version of it.  We do store 
         // the salt (in its plaintext form; this is not a security risk). 
         $query_params = array( 
             ':UserName' => $_POST['username'], 
+            ':UserID' => $UserID, 
+            ':AccountType' => $AccountType, 
+            ':Properties' => $Properties 
+        ); 
+        
+        $query2_params = array( 
+            ':UserID' => $_POST['username'], 
             ':password' => $password, 
             ':salt' => $salt, 
-            ':email' => $_POST['email'] 
-        ); 
+        );
          
         try 
         { 
             // Execute the query to create the user 
             $stmt = $db->prepare($query); 
             $result = $stmt->execute($query_params); 
+        } 
+        catch(PDOException $ex) 
+        { 
+            // Note: On a production website, you should not output $ex->getMessage(). 
+            // It may provide an attacker with helpful information about your code.  
+            die("Failed to run query: " . $ex->getMessage()); 
+        } 
+        
+        try 
+        { 
+            // Execute the query to create the user 
+            $stmt2 = $db->prepare($query2); 
+            $result2 = $stmt->execute($query2_params); 
         } 
         catch(PDOException $ex) 
         { 

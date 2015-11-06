@@ -19,14 +19,23 @@
             SELECT 
                 UserID, 
                 UserName, 
-                password, 
-                salt, 
-                email 
+                AccountType,
+                Properties 
             FROM Users 
             WHERE 
                 UserName = :UserName 
-        "; 
+        ";
          
+         $query2 = " 
+            SELECT 
+                UserID, 
+                Password, 
+                salt, 
+            FROM passwords 
+            WHERE 
+                User
+                UserID = :UserID 
+        ";
         // The parameter values 
         $query_params = array( 
             ':UserName' => $_POST['username'] 
@@ -42,7 +51,25 @@
         { 
             //display if failed to run 
             die("Failed to run query: " . $ex->getMessage()); 
+        }
+        
+        $getUserId = $stmt->fetch(); 
+        $query2_params = array( 
+            ':UserID' => $getUserId['UserID'] 
+        );
+        
+        try 
+        { 
+            // Execute the query against the database 
+            $stmt2 = $db->prepare($query2); 
+            $result2 = $stmt2->execute($query2_params); 
         } 
+        catch(PDOException $ex) 
+        { 
+            //display if failed to run 
+            die("Failed to run query: " . $ex->getMessage()); 
+        }
+          
          
         // This variable tells us whether the user has successfully logged in or not.
         // We initialize it to false assuming they have not already logged in. 
@@ -50,18 +77,18 @@
         $login_ok = false; 
          
         // Retrieve the user data from the database. If $row is false then the username they entered is not registered. 
-        $row = $stmt->fetch(); 
-        if($row) 
+        $getPassword = $stmt2->fetch(); 
+        if($getPassword) 
         { 
             // Using the password submitted by the user and the salt stored in the database,   // we now check to see whether the passwords match by hashing the submitted password 
             // and comparing it to the hashed version already stored in the database.
-            $check_password = hash('sha256', $_POST['password'] . $row['salt']); 
+            $check_password = hash('sha256', $_POST['password'] . $getPassword['salt']); 
             for($round = 0; $round < 65536; $round++) 
             { 
-                $check_password = hash('sha256', $check_password . $row['salt']); 
+                $check_password = hash('sha256', $check_password . $getPassword['salt']); 
             } 
              
-            if($check_password === $row['password']) 
+            if($check_password == $getPassword['password']) 
             { 
                 // If they do, then we flip this to true 
                 $login_ok = true; 
@@ -77,14 +104,14 @@
             // stored on the server-side, there is no reason to store sensitive values 
             // in it unless you have to.  Thus, it is best practice to remove these 
             // sensitive values first. 
-            unset($row['salt']); 
-            unset($row['password']); 
+            unset($getPassword['salt']); 
+            unset($getPassword['password']); 
              
             // This stores the user's data into the session at the index 'user'. 
             // We will check this index on the private members-only page to determine whether 
             // or not the user is logged in.  We can also use it to retrieve 
             // the user's details. 
-            $_SESSION['user'] = $row; 
+            $_SESSION['user'] = $getUserId; 
              
             // Redirect the user to the private members-only page. 
             header("Location: private.php"); 
