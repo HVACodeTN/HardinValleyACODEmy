@@ -114,8 +114,8 @@
             $_SESSION['user'] = $getUserId; 
              
             // Redirect the user to the private members-only page. 
-            header("Location: private.php"); 
-            die("Redirecting to: private.php"); 
+            header("Location: /views/index.html"); 
+            die("Redirecting to: index.html"); 
         } 
         else 
         { 
@@ -132,69 +132,3 @@
     } 
      
 ?>
-
-
-
-
-
-<!doctype html>
-<!-- Basic Login Page for app -->
-<html>
-<head>
-<meta charset="utf-8">
-<title>CodeTn Login Page</title>
-
-
-
-</head>
-
-<body>
-<img src="../Header.jpg" width="1280" height="427" alt=""/>
-<!-- change logo later to updated verison instead of last year's -->
-
-<form action="Login.php" method="POST">
-
-
-<!-- Center everything within the from -->
-<center>
-
-<h1>Login</h1>
-
-<fieldset>
-
-<!-- Username Input -->
-<p><label for="username">Username:</label>
-<br>
-<input type="text" name="username" value="<?php echo $submitted_username; ?>" /> </p>
-
-<!-- Password Input -->
-<p><label for="password">Password:</label>
-<br>
-<input type="password" name="password" id="passwordInput" value=""></p>
-
-<!-- Select if used for more then one school -->
-<!-- note we made fake school names -->
-<!--
-<select name="School">
-<option value="Hardin Valley">Hardin Valley</option>
-<option value="SchoolA">SchoolA</option>
-<option value="SchoolB">SchoolB</option>
-<option value="SchoolC">SchoolC</option>
-</select>
-<br> <rt> Select School </rt> <br>
--->
-<!-- Button used for Submitting to server side code -->
-<input type="submit" value="Login">
-
-<!-- Hyperlink to Signup page -->
-<rt><p>Click <a href="Register.php">Sign up</a> to Register</p></rt>
-
-<!-- end field -->
-</fieldset>
-
-</center>
-
-</form>
-
-</body>
-</html>

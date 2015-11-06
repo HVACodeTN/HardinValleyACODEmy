@@ -83,7 +83,7 @@
         $getNewUserID = false;
         while(!$getNewUserID)
         {
-        $query3 = " 
+        $query2 = " 
             SELECT 
                 1 
             FROM Users 
@@ -99,37 +99,29 @@
         // For more information on SQL injections, see Wikipedia: 
         // http://en.wikipedia.org/wiki/SQL_Injection 
         $UserID = mt_rand();
-        $query3_params = array( 
+        $query2_params = array( 
             ':UserID' =>  $UserID
         ); 
          
         try 
         { 
             // These two statements run the query against your database table. 
-            $stmt3 = $db->prepare($query3); 
-            $result3 = $stmt3->execute($query3_params);
-            $getNewUserID = true;
+            $stmt2 = $db->prepare($query2); 
+            $result2 = $stmt2->execute($query2_params);
         } 
         catch(PDOException $ex) 
         { 
-            $getNewUserID = false;
             // Note: On a production website, you should not output $ex->getMessage(). 
             // It may provide an attacker with helpful information about your code.  
             //die("Failed to run query: " . $ex->getMessage()); 
         }
+        $getNewUserID = $stmt2->fetch();
+         
         } 
          
         // The fetch() method returns an array representing the "next" row from 
         // the selected results, or false if there are no more rows to fetch. 
-        $getUserGet = $stmt->fetch();
-         
-         
-        // If a row was returned, then we know a matching username was found in 
-        // the database already and we should not allow the user to continue. 
-        if($getUserGet) 
-        { 
-            die("This username is already in use"); 
-        }  
+          
          
         // Now we perform the same type of check for the email address, in order 
         // to ensure that it is unique. 
@@ -167,11 +159,11 @@
         // An INSERT query is used to add new rows to a database table. 
         // Again, we are using special tokens (technically called parameters) to 
         // protect against SQL injection attacks. 
-        $query = " 
+        $query3 = " 
             INSERT INTO Users ( 
                 UserName, 
                 UserID, 
-                AccoutType,
+                AccountType,
                 Properties
             ) VALUES ( 
                 :UserName, 
@@ -181,7 +173,7 @@
             ) 
         "; 
          
-         $query2 = " 
+         $query4 = " 
             INSERT INTO Passwords ( 
                 UserID, 
                 Password, 
@@ -225,24 +217,24 @@
         // Here we prepare our tokens for insertion into the SQL query.  We do not 
         // store the original password; only the hashed version of it.  We do store 
         // the salt (in its plaintext form; this is not a security risk). 
-        $query_params = array( 
+        $query3_params = array( 
             ':UserName' => $_POST['username'], 
             ':UserID' => $UserID, 
             ':AccountType' => $AccountType, 
             ':Properties' => $Properties 
         ); 
         
-        $query2_params = array( 
-            ':UserID' => $_POST['username'], 
+        $query4_params = array( 
+            ':UserID' => $UserID, 
             ':password' => $password, 
-            ':salt' => $salt, 
+            ':salt' => $salt 
         );
          
         try 
         { 
             // Execute the query to create the user 
-            $stmt = $db->prepare($query); 
-            $result = $stmt->execute($query_params); 
+            $stmt3 = $db->prepare($query3); 
+            $result3 = $stmt->execute($query3_params); 
         } 
         catch(PDOException $ex) 
         { 
@@ -254,8 +246,8 @@
         try 
         { 
             // Execute the query to create the user 
-            $stmt2 = $db->prepare($query2); 
-            $result2 = $stmt->execute($query2_params); 
+            $stmt4 = $db->prepare($query4); 
+            $result4 = $stmt->execute($query4_params); 
         } 
         catch(PDOException $ex) 
         { 
@@ -291,7 +283,7 @@
 <center>
 
 <h1>Register</h1> 
-<form action="register.php" method="post"> 
+<form action="Register.php" method="post"> 
     Username:<br /> 
     <input type="text" name="username" value="" /> 
     <br /><br /> 
