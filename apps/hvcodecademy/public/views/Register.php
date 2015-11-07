@@ -65,7 +65,7 @@
         { 
             // Note: On a production website, you should not output $ex->getMessage(). 
             // It may provide an attacker with helpful information about your code.  
-            die("Failed to run query: " . $ex->getMessage()); 
+            die("Failed to run query1: " . $ex->getMessage()); 
         } 
          
         // The fetch() method returns an array representing the "next" row from 
@@ -104,9 +104,9 @@
             } 
             catch(PDOException $ex) 
             { 
-                // Note: On a production website, you should not output $ex->getMessage(). 
+                // TODO: On a production website, you should not output $ex->getMessage(). 
                 // It may provide an attacker with helpful information about your code.  
-                //die("Failed to run query: " . $ex->getMessage()); 
+                die("Failed to run query2: " . $ex->getMessage()); 
             }
             if (!$stmt2->rowCount()) { // this returns 1 if the userID is found and already exists. If nothing is found, we should proceed
                 // we didn't find any conflicts: go ahead and proceed
@@ -155,18 +155,17 @@
         // Again, we are using special tokens (technically called parameters) to 
         // protect against SQL injection attacks. 
         $query3 = " 
-            INSERT INTO Users ( 
+            INSERT INTO Users (
                 UserName, 
                 UserID, 
-                AccountType,
-                Properties
-            ) VALUES ( 
+                AccountType, 
+                Properties 
+            ) VALUES (
                 :UserName, 
                 :UserID, 
                 :AccountType, 
-                :Properties 
-            ) 
-        "; 
+                :Properties
+            ) "; 
          
          $query4 = " 
             INSERT INTO Passwords ( 
@@ -207,7 +206,7 @@
             $password = hash('sha256', $password . $salt); 
         } 
         $AccountType = 1;
-        $Properties = "";
+        $Properties = "[Properties go here]";
         
         // Here we prepare our tokens for insertion into the SQL query.  We do not 
         // store the original password; only the hashed version of it.  We do store 
@@ -229,26 +228,30 @@
         { 
             // Execute the query to create the user 
             $stmt3 = $db->prepare($query3); 
-            $result3 = $stmt->execute($query3_params); 
+            $result3 = $stmt3->execute($query3_params); 
         } 
         catch(PDOException $ex) 
         { 
             // Note: On a production website, you should not output $ex->getMessage(). 
             // It may provide an attacker with helpful information about your code.  
-            die("Failed to run query: " . $ex->getMessage()); 
+           die("Failed to run query3: " . $ex->getMessage()); 
         } 
         
         try 
         { 
             // Execute the query to create the user 
+            echo "Query:$query4 Params: ";
+            foreach ($query4_params as $key => $value) {
+                echo "$key=>$value ";
+            }
             $stmt4 = $db->prepare($query4); 
-            $result4 = $stmt->execute($query4_params); 
+            $result4 = $stmt4->execute($query4_params); 
         } 
         catch(PDOException $ex) 
         { 
             // Note: On a production website, you should not output $ex->getMessage(). 
             // It may provide an attacker with helpful information about your code.  
-            die("Failed to run query: " . $ex->getMessage()); 
+            die("Failed to run query4: " . $ex->getMessage()); 
         } 
          
         // This redirects the user back to the login page after they register 
