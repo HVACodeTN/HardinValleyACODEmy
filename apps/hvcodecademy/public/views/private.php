@@ -7,11 +7,11 @@
     if(empty($_SESSION['user'])) 
     { 
         // If they are not, we redirect them to the login page. 
-        header("Location: /views/Login.php"); 
+        header("Location: /views/login.html"); 
          
         // Remember that this die statement is absolutely critical.  Without it, 
         // people can view your members-only content without logging in. 
-        die("Redirecting to Login.php"); 
+        die("Redirecting to login.html"); 
     } 
      
     // Everything below this point in the file is secured by the login system 
