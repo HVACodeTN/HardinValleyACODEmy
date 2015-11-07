@@ -31,9 +31,8 @@
                 UserID, 
                 Password, 
                 salt, 
-            FROM passwords 
+            FROM Passwords 
             WHERE 
-                User
                 UserID = :UserID 
         ";
         // The parameter values 
@@ -54,47 +53,49 @@
         }
         
         $getUserId = $stmt->fetch(); 
-        $query2_params = array( 
-            ':UserID' => $getUserId['UserID'] 
-        );
-        
-        try 
-        { 
-            // Execute the query against the database 
-            $stmt2 = $db->prepare($query2); 
-            $result2 = $stmt2->execute($query2_params); 
-        } 
-        catch(PDOException $ex) 
-        { 
-            //display if failed to run 
-            die("Failed to run query: " . $ex->getMessage()); 
+        if ($getUserId) {
+            // verify that UserName is valid
+            $query2_params = array( 
+                ':UserID' => $getUserId['UserID'] 
+            );
+            
+            try 
+            { 
+                // Execute the query against the database 
+                $stmt2 = $db->prepare($query2); 
+                $result2 = $stmt2->execute($query2_params); 
+            } 
+            catch(PDOException $ex) 
+            { 
+                //display if failed to run 
+                die("Failed to run query: " . $ex->getMessage()); 
+            }
+            
+            
+            // This variable tells us whether the user has successfully logged in or not.
+            // We initialize it to false assuming they have not already logged in. 
+            // If we determine that they have entered the right details then we switch it to true. 
+            $login_ok = false; 
+         
+            // Retrieve the user data from the database. If $row is false then the username they entered is not registered. 
+            $getPassword = $stmt2->fetch(); 
+            if($getPassword) 
+            { 
+                // Using the password submitted by the user and the salt stored in the database,   // we now check to see whether the passwords     match by hashing the submitted password 
+                // and comparing it to the hashed version already stored in the database.
+                $check_password = hash('sha256', $_POST['password'] . $getPassword['salt']); 
+                for($round = 0; $round < 65536; $round++) 
+                { 
+                    $check_password = hash('sha256', $check_password . $getPassword['salt']); 
+                } 
+                
+                if($check_password == $getPassword['password']) 
+                { 
+                    // If they do, then we flip this to true 
+                    $login_ok = true; 
+                } 
+            } 
         }
-          
-         
-        // This variable tells us whether the user has successfully logged in or not.
-        // We initialize it to false assuming they have not already logged in. 
-        // If we determine that they have entered the right details then we switch it to true. 
-        $login_ok = false; 
-         
-        // Retrieve the user data from the database. If $row is false then the username they entered is not registered. 
-        $getPassword = $stmt2->fetch(); 
-        if($getPassword) 
-        { 
-            // Using the password submitted by the user and the salt stored in the database,   // we now check to see whether the passwords match by hashing the submitted password 
-            // and comparing it to the hashed version already stored in the database.
-            $check_password = hash('sha256', $_POST['password'] . $getPassword['salt']); 
-            for($round = 0; $round < 65536; $round++) 
-            { 
-                $check_password = hash('sha256', $check_password . $getPassword['salt']); 
-            } 
-             
-            if($check_password == $getPassword['password']) 
-            { 
-                // If they do, then we flip this to true 
-                $login_ok = true; 
-            } 
-        } 
-         
         // Iflogin is successful then we send them to the private index/home page 
         // Otherwise, we display a login failed message and show the login form again
         if($login_ok) 
@@ -104,8 +105,8 @@
             // stored on the server-side, there is no reason to store sensitive values 
             // in it unless you have to.  Thus, it is best practice to remove these 
             // sensitive values first. 
-            unset($getPassword['salt']); 
-            unset($getPassword['password']); 
+            // unset($getPassword['salt']); 
+            // unset($getPassword['password']); 
              
             // This stores the user's data into the session at the index 'user'. 
             // We will check this index on the private members-only page to determine whether 
@@ -132,3 +133,167 @@
     } 
      
 ?>
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <!--[if IE]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <![endif]-->
+    <title>Free Responsive Admin Theme - ZONTAL</title>
+    <!-- BOOTSTRAP CORE STYLE  -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <!-- FONT AWESOME ICONS  -->
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+    <!-- CUSTOM STYLE  -->
+    <link href="assets/css/style.css" rel="stylesheet" />
+     <!-- HTML5 Shiv and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    
+    <div class="navbar navbar-inverse set-radius-zero">
+        <div class="container">
+        
+            <div class="navbar-header">
+            
+             <img src="Header.jpg" alt="LOGO" height="180" weight="42"/>
+              
+
+            </div>
+
+            <div class="left-div">
+                <div class="user-settings-wrapper">
+                    <ul class="nav">
+
+                        
+</ul>
+                            </div>
+                        
+
+
+                    
+                </div>
+            </div>
+        </div>
+    
+    <!-- LOGO HEADER END-->
+        <section class="menu-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="navbar-collapse collapse ">
+                            <ul id="menu-top" class="nav navbar-nav navbar-left ">
+                               
+                                <li><a href="Index.php">Home</a></li>
+                                <li><a href="Map_Schedule">Schedule</a></li>
+                                <li><a href="About.php">About Us</a></li>
+                                 <li><a href="MemberList.php">Member list</a></li>
+                                <li><a href="Logout.php">Logout</a></li>
+    
+                            </ul>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+        </section>
+    <!-- MENU SECTION END-->
+    <div class="content-wrapper">
+        <div class="container">
+        
+          <div class="main">
+                <form action="/views/Login.php" method="POST">
+    
+    
+    <!-- Center everything within the from -->
+    <center>
+    
+    <h1>Login</h1>
+    
+    <fieldset>
+    
+    <!-- Username Input -->
+    <p><label for="username">Username:</label>
+    <br>
+    <input type="text" name="username" value="<?php echo $submitted_username; ?>" />
+    </p>
+    
+    <!-- Password Input -->
+    <p><label for="password">Password:</label>
+    <br>
+    <input type="password" name="password" id="passwordInput" value=""></p>
+    
+    <!-- Select if used for more then one school -->
+    <!-- note we made fake school names -->
+    <!--
+    <select name="School">
+    <option value="Hardin Valley">Hardin Valley</option>
+    <option value="SchoolA">SchoolA</option>
+    <option value="SchoolB">SchoolB</option>
+    <option value="SchoolC">SchoolC</option>
+    </select>
+    <br> <rt> Select School </rt> <br>
+    -->
+    <!-- Button used for Submitting to server side code -->
+    <input type="submit" value="Login">
+    
+    <!-- Hyperlink to Signup page -->
+    <rt><p>Click <a href="/views/Register.php">Here</a> to Register</p></rt>
+    
+    <!-- end field -->
+    </fieldset>
+    
+    </center>
+    
+    </form>
+          </div>
+            <div class="panel-body">
+                               
+            </div>
+             <ul>
+                                   
+                                   
+                                     
+        <div class="text-center alert alert-warning">
+            <a href="#" class="btn btn-social btn-facebook">
+            	<i class="fa fa-facebook"></i>&nbsp; Facebook</a>
+            <a href="#" class="btn btn-social btn-google">
+            	<i class="fa fa-google-plus"></i>&nbsp; Google</a>
+            <a href="#" class="btn btn-social btn-twitter">
+            	<i class="fa fa-twitter"></i>&nbsp; Twitter </a>
+            <a href="#" class="btn btn-social btn-linkedin">
+            	<i class="fa fa-linkedin"></i>&nbsp; Linkedin </a>
+ </ul>
+                            
+         </div>
+                
+    <!-- CONTENT-WRAPPER SECTION END-->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <center>
+                    	<p>HardinValleyACODEmy@gmail.com</p>
+                        <p> 2015 | By: Hardin Valley ACODEmy </p>
+                    </center>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+    <!-- FOOTER SECTION END-->
+    <!-- JAVASCRIPT AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
+    <!-- CORE JQUERY SCRIPTS -->
+    <script src="assets/js/jquery-1.11.1.js"></script>
+    <!-- BOOTSTRAP SCRIPTS  -->
+    <script src="assets/js/bootstrap.js"></script>
+</body>
+</html>
