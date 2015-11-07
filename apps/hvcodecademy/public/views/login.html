@@ -75,7 +75,7 @@
         <div class="container">
         
           <div class="main">
-                <form action="Login.php" method="POST">
+                <form action="/views/Login.php" method="POST">
     
     
     <!-- Center everything within the from -->
@@ -88,7 +88,8 @@
     <!-- Username Input -->
     <p><label for="username">Username:</label>
     <br>
-    <input type="text" name="username" value="<?php echo $submitted_username; ?>" /> </p>
+    <input type="text" name="username" value=<?php echo $submitted_username; ?> />
+    </p>
     
     <!-- Password Input -->
     <p><label for="password">Password:</label>
@@ -110,7 +111,7 @@
     <input type="submit" value="Login">
     
     <!-- Hyperlink to Signup page -->
-    <rt><p>Click <a href="Register.php">Here</a> to Register</p></rt>
+    <rt><p>Click <a href="/views/Register.php">Here</a> to Register</p></rt>
     
     <!-- end field -->
     </fieldset>
