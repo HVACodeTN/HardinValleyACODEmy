@@ -1,4 +1,13 @@
-﻿<!DOCTYPE html>
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>User List</title>
+</head>
+
+<body>
+
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
@@ -23,8 +32,8 @@
     <![endif]-->
 </head>
 <body>
-    <img src="Header.jpg" alt="LOGO" style="width:100%;height:10%"/>
-    <!--<div class="navbar navbar-inverse set-radius-zero">
+    
+    <div class="navbar navbar-inverse set-radius-zero">
         <div class="container">
         
             <div class="navbar-header">
@@ -40,7 +49,7 @@
 
                         
 </ul>
-                            </div> -->
+                            </div>
                         
 
 
@@ -75,7 +84,7 @@
         <div class="container">
         
           <div class="main">
-   
+   <!-- Add PHP Table -->
           </div>
             <div class="panel-body">
                                
@@ -119,3 +128,6 @@
     <script src="assets/js/bootstrap.js"></script>
 </body>
 </html>
+
+
+

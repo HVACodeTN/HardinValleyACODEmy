@@ -3450,6 +3450,10 @@ tbody.collapse.in {
   color: #333;
   white-space: nowrap;
 }
+.dropdown-menu-Item{
+
+
+}
 .dropdown-menu > li > a:hover,
 .dropdown-menu > li > a:focus {
   color: #262626;
@@ -4063,8 +4067,6 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 @media (min-width: 768px) {
   .navbar-header {
     float: left;
-	margin-bottom: -30px;
-	margin-right: 20px;
   }
 }
 .navbar-collapse {
