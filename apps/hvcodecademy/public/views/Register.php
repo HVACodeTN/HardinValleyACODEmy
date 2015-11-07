@@ -80,43 +80,38 @@
             die("This username is already in use"); 
         }
         
-        $getNewUserID = false;
-        while(!$getNewUserID)
+        $userIDUnique = false;
+        while(!$userIDUnique)
         {
-        $query2 = " 
-            SELECT 
-                1 
-            FROM Users 
-            WHERE 
-                UserID = :UserID 
-        "; 
+            $query2 = " 
+                SELECT 
+                    1 
+                FROM Users 
+                WHERE 
+                    UserID = :UserID 
+                "; 
          
-        // This contains the definitions for any special tokens that we place in 
-        // our SQL query.  In this case, we are defining a value for the token 
-        // :username.  It is possible to insert $_POST['username'] directly into 
-        // your $query string; however doing so is very insecure and opens your 
-        // code up to SQL injection exploits.  Using tokens prevents this. 
-        // For more information on SQL injections, see Wikipedia: 
-        // http://en.wikipedia.org/wiki/SQL_Injection 
-        $UserID = mt_rand();
-        $query2_params = array( 
-            ':UserID' =>  $UserID
-        ); 
-         
-        try 
-        { 
-            // These two statements run the query against your database table. 
-            $stmt2 = $db->prepare($query2); 
-            $result2 = $stmt2->execute($query2_params);
-        } 
-        catch(PDOException $ex) 
-        { 
-            // Note: On a production website, you should not output $ex->getMessage(). 
-            // It may provide an attacker with helpful information about your code.  
-            //die("Failed to run query: " . $ex->getMessage()); 
-        }
-        $getNewUserID = $stmt2->fetch();
-         
+            $UserID = mt_rand();
+            $query2_params = array( 
+                ':UserID' =>  $UserID
+            ); 
+            
+            try 
+            { 
+                // These two statements run the query against your database table. 
+                $stmt2 = $db->prepare($query2); 
+                $result2 = $stmt2->execute($query2_params);
+            } 
+            catch(PDOException $ex) 
+            { 
+                // Note: On a production website, you should not output $ex->getMessage(). 
+                // It may provide an attacker with helpful information about your code.  
+                //die("Failed to run query: " . $ex->getMessage()); 
+            }
+            if (!$stmt2->rowCount()) { // this returns 1 if the userID is found and already exists. If nothing is found, we should proceed
+                // we didn't find any conflicts: go ahead and proceed
+                $userIDUnique = true;
+            }
         } 
          
         // The fetch() method returns an array representing the "next" row from 
