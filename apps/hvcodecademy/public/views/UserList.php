@@ -1,4 +1,48 @@
-﻿<!DOCTYPE html>
+<?php 
+
+    // First we execute our common code to connection to the database and start the session 
+    require("common.php"); 
+     
+    require("private.php"); 
+     
+    // Everything below this point in the file is secured by the login system 
+     
+    // We can retrieve a list of members from the database using a SELECT query. 
+    // In this case we do not have a WHERE clause because we want to select all 
+    // of the rows from the database table. 
+    $query = " 
+        SELECT 
+            UserID, 
+            UserName 
+        FROM Users 
+    "; 
+     
+    try 
+    { 
+        // These two statements run the query against your database table. 
+        $stmt = $db->prepare($query); 
+        $stmt->execute(); 
+    } 
+    catch(PDOException $ex) 
+    { 
+        // Note: On a production website, you should not output $ex->getMessage(). 
+        // It may provide an attacker with helpful information about your code.  
+        die("Failed to run query: " . $ex->getMessage()); 
+    } 
+         
+    // Finally, we can retrieve all of the found rows into an array using fetchAll 
+    $rows = $stmt->fetchAll(); 
+?> 
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>User List</title>
+</head>
+
+<body>
+
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
@@ -8,7 +52,7 @@
     <!--[if IE]>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <![endif]-->
-    <title>Login</title>
+    <title>Home</title>
     <!-- BOOTSTRAP CORE STYLE  -->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
     <!-- FONT AWESOME ICONS  -->
@@ -29,7 +73,7 @@
         
             <div class="navbar-header">
             
-             <img src="Header.jpg" alt="LOGO" height="180" weight="42"/>
+             <img src="Header.jpg" alt="LOGO" height="180" width="1100"/>
               
 
             </div>
@@ -48,56 +92,49 @@
                 </div>
             </div>
         </div>
-  
+    
+    <!-- LOGO HEADER END-->
+        <section class="menu-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="navbar-collapse collapse ">
+                            <ul id="menu-top" class="nav navbar-nav navbar-left ">
+                               
+                                <li><a href="Index.php">Home</a></li>
+                                <li><a href="Map_Schedule">Schedule</a></li>
+                                <li><a href="About.php">About Us</a></li>
+                                 <li><a href="MemberList.php">Member list</a></li>
+                                <li><a href="Logout.php">Logout</a></li>
+    
+                            </ul>
+                        </div>
+                    </div>
+    
+                </div>
+            </div>
+        </section>
     <!-- MENU SECTION END-->
     <div class="content-wrapper">
         <div class="container">
         
           <div class="main">
-                <form action="/views/Login.php" method="POST">
-    
-    
-    <!-- Center everything within the from -->
-    <center>
-    
-    <h1>Login</h1>
-    
-    <fieldset>
-    
-    <!-- Username Input -->
-    <p><label for="username">Username:</label>
-    <br>
-    <input type="text" name="username" value="<?php echo $submitted_username; ?>" />
-    </p>
-    
-    <!-- Password Input -->
-    <p><label for="password">Password:</label>
-    <br>
-    <input type="password" name="password" id="passwordInput" value=""></p>
-    
-    <!-- Select if used for more then one school -->
-    <!-- note we made fake school names -->
-    <!--
-    <select name="School">
-    <option value="Hardin Valley">Hardin Valley</option>
-    <option value="SchoolA">SchoolA</option>
-    <option value="SchoolB">SchoolB</option>
-    <option value="SchoolC">SchoolC</option>
-    </select>
-    <br> <rt> Select School </rt> <br>
-    -->
-    <!-- Button used for Submitting to server side code -->
-    <input type="submit" value="Login">
-    
-    <!-- Hyperlink to Signup page -->
-    <rt><p>Click <a href="/views/Register.php">Here</a> to Register</p></rt>
-    
-    <!-- end field -->
-    </fieldset>
-    
-    </center>
-    
-    </form>
+   <!-- Add PHP Table -->
+   <h1>Memberlist</h1> 
+   <table> 
+       <tr> 
+           <th>ID</th> 
+           <th>Username</th> 
+           <th>E-Mail Address</th> 
+       </tr> 
+       <?php foreach($rows as $row): ?> 
+           <tr> 
+               <td><?php echo $row['UserID']; ?></td> <!-- htmlentities is not needed here because $row['id'] is always an integer --> 
+               <td><?php echo htmlentities($row['UserName'], ENT_QUOTES, 'UTF-8'); ?></td> 
+           </tr> 
+       <?php endforeach; ?> 
+   </table> 
+   <!-- End PHP Table -->
           </div>
             <div class="panel-body">
                                
@@ -141,3 +178,6 @@
     <script src="assets/js/bootstrap.js"></script>
 </body>
 </html>
+
+
+

@@ -1,2 +1,0 @@
-<!-- Login actived action -->
-<?php

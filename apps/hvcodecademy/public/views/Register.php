@@ -220,7 +220,7 @@
         
         $query4_params = array( 
             ':UserID' => $UserID, 
-            ':password' => $password, 
+            ':Password' => $password, 
             ':salt' => $salt 
         );
          
@@ -240,10 +240,6 @@
         try 
         { 
             // Execute the query to create the user 
-            echo "Query:$query4 Params: ";
-            foreach ($query4_params as $key => $value) {
-                echo "$key=>$value ";
-            }
             $stmt4 = $db->prepare($query4); 
             $result4 = $stmt4->execute($query4_params); 
         } 

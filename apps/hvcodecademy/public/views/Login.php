@@ -30,7 +30,7 @@
             SELECT 
                 UserID, 
                 Password, 
-                salt, 
+                salt 
             FROM Passwords 
             WHERE 
                 UserID = :UserID 
@@ -68,7 +68,7 @@
             catch(PDOException $ex) 
             { 
                 //display if failed to run 
-                die("Failed to run query: " . $ex->getMessage()); 
+                die("Failed to run query2: " . $ex->getMessage()); 
             }
             
             
@@ -89,7 +89,7 @@
                     $check_password = hash('sha256', $check_password . $getPassword['salt']); 
                 } 
                 
-                if($check_password == $getPassword['password']) 
+                if($check_password == $getPassword['Password']) 
                 { 
                     // If they do, then we flip this to true 
                     $login_ok = true; 
@@ -115,8 +115,8 @@
             $_SESSION['user'] = $getUserId; 
              
             // Redirect the user to the private members-only page. 
-            header("Location: /views/index.html"); 
-            die("Redirecting to: index.html"); 
+            header("Location: /views/index.php"); 
+            die("Redirecting to: index.php"); 
         } 
         else 
         { 
@@ -133,7 +133,7 @@
     } 
      
 ?>
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
@@ -143,7 +143,7 @@
     <!--[if IE]>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <![endif]-->
-    <title>Free Responsive Admin Theme - ZONTAL</title>
+    <title>Login</title>
     <!-- BOOTSTRAP CORE STYLE  -->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
     <!-- FONT AWESOME ICONS  -->
@@ -183,28 +183,7 @@
                 </div>
             </div>
         </div>
-    
-    <!-- LOGO HEADER END-->
-        <section class="menu-section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="navbar-collapse collapse ">
-                            <ul id="menu-top" class="nav navbar-nav navbar-left ">
-                               
-                                <li><a href="Index.php">Home</a></li>
-                                <li><a href="Map_Schedule">Schedule</a></li>
-                                <li><a href="About.php">About Us</a></li>
-                                 <li><a href="MemberList.php">Member list</a></li>
-                                <li><a href="Logout.php">Logout</a></li>
-    
-                            </ul>
-                        </div>
-                    </div>
-    
-                </div>
-            </div>
-        </section>
+  
     <!-- MENU SECTION END-->
     <div class="content-wrapper">
         <div class="container">
@@ -263,13 +242,13 @@
                                    
                                      
         <div class="text-center alert alert-warning">
-            <a href="#" class="btn btn-social btn-facebook">
+            <a href="https://www.facebook.com/HardinValleyACODEmy/" class="btn btn-social btn-facebook">
             	<i class="fa fa-facebook"></i>&nbsp; Facebook</a>
-            <a href="#" class="btn btn-social btn-google">
+            <a href="https://plus.google.com/communities/106795819648573546757?hl=en" class="btn btn-social btn-google">
             	<i class="fa fa-google-plus"></i>&nbsp; Google</a>
-            <a href="#" class="btn btn-social btn-twitter">
+            <a href="https://twitter.com/HVACODEmy" class="btn btn-social btn-twitter">
             	<i class="fa fa-twitter"></i>&nbsp; Twitter </a>
-            <a href="#" class="btn btn-social btn-linkedin">
+            <a href="https://www.linkedin.com/grp/home?gid=8434114" class="btn btn-social btn-linkedin">
             	<i class="fa fa-linkedin"></i>&nbsp; Linkedin </a>
  </ul>
                             
