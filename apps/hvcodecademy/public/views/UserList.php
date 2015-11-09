@@ -3,8 +3,18 @@
     // First we execute our common code to connection to the database and start the session 
     require("common.php"); 
      
+    if(!($_SESSION['user']['AccountType']=='Administrator')) 
+    { 
+        // User is not admin so we redirect them to the login page. 
+        header("Location: /views/index.php"); 
+         
+        // Remember that this die statement is absolutely critical.  Without it, 
+        // people can view your members-only content without logging in. 
+        die("Redirecting to index.php"); 
+    } 
+
     require("private.php"); 
-     
+
     // Everything below this point in the file is secured by the login system 
      
     // We can retrieve a list of members from the database using a SELECT query. 
@@ -13,7 +23,8 @@
     $query = " 
         SELECT 
             UserID, 
-            UserName 
+            UserName,
+            AccountType 
         FROM Users 
     "; 
      
@@ -124,13 +135,14 @@
    <table> 
        <tr> 
            <th>ID</th> 
-           <th>Username</th> 
-           <th>E-Mail Address</th> 
+           <th>Username</th>  
+           <th>Account Type</th>  
        </tr> 
        <?php foreach($rows as $row): ?> 
            <tr> 
                <td><?php echo $row['UserID']; ?></td> <!-- htmlentities is not needed here because $row['id'] is always an integer --> 
                <td><?php echo htmlentities($row['UserName'], ENT_QUOTES, 'UTF-8'); ?></td> 
+               <td><?php echo htmlentities($row['AccountType'], ENT_QUOTES, 'UTF-8'); ?></td> 
            </tr> 
        <?php endforeach; ?> 
    </table> 

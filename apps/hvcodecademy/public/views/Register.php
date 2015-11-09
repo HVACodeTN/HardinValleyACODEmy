@@ -205,7 +205,7 @@
         { 
             $password = hash('sha256', $password . $salt); 
         } 
-        $AccountType = 1;
+        $AccountType = 2; //AccountType 1 is Admin
         $Properties = "[Properties go here]";
         
         // Here we prepare our tokens for insertion into the SQL query.  We do not 
