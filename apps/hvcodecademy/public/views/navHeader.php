@@ -1,4 +1,4 @@
-<img src="" alt="LOGO" style="width:100%;height:10%"/>
+<img src="\views\assets\img\Header.jpg" alt="LOGO" style="width:100%;height:10%"/>
 
 <!-- LOGO HEADER END-->
     <section class="menu-section">
