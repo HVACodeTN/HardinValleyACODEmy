@@ -6,8 +6,8 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <!--[if IE]>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <![endif]-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <![endif]-->
     <title>About the Team</title>
     <!-- BOOTSTRAP CORE STYLE  -->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
@@ -15,126 +15,111 @@
     <link href="assets/css/font-awesome.css" rel="stylesheet" />
     <!-- CUSTOM STYLE  -->
     <link href="assets/css/style.css" rel="stylesheet" />
-     <!-- HTML5 Shiv and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- HTML5 Shiv and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
 <body>
     <?php require 'navHeader.php'; ?>
 
     <div class="content-wrapper">
-    <div class="container">
-        
-    <div class="main">
-	<center>
-  <h2>About CodeTN</h2>
-	<p>
-	CodeTN is a fairly new competition created in 2014 to challenge young, aspiring programmers.
-	They are presented with a problem in which they must create a program to solve it.
-	This year's problem was to create an application to better the community.
-	</p>
-	<br>
-	<h2>About the Project</h2>
-	<p>
-	To solve this year's problem, we created a School schedule and map to help schools
-    with simple tasks
-	</p>
-	<br>
-	<h2>About the Team</h2>
-	<p>
-	Our team consists of five people:
-	<br>
-	</p>
-    
-	  </div>
-	<p><br>
-	  
-<div class="col-md-2 text-center">
-	  <div class="thumbnail"> <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-	    <div class="caption">
-	      <h3> Tym Brandel
-          <br>
-	        <small>Team Leader</small> </h3>
-	      <p>L</p>
-	      <ul class="list-inline">
-	        <li><a href="#"><i class="fa fa-2x fa-facebook-square"></i></a> </li>
-	        <li><a href="#"><i class="fa fa-2x fa-linkedin-square"></i></a> </li>
-	        <li><a href="#"><i class="fa fa-2x fa-twitter-square"></i></a> </li>
-	        </ul>
-	      </div>
-	    </div>
-	  <br>
-	  </p>
-	<br><br><br>
-  </div>
-  
-  </center>
+        <div class="container">
 
-          </div>
+            <div class="main">
+                <center>
+                    <h2>About CodeTN</h2>
+                    <p>
+                        CodeTN is a fairly new competition created in 2014 to challenge young, aspiring programmers.
+                        They are presented with a problem in which they must create a program to solve it.
+                        This year's problem was to create an application to better the community.
+                    </p>
+                    <br>
+                    <h2>About the Project</h2>
+                    <p>
+                        To solve this year's problem, we created a School schedule and map to help schools
+                        with simple tasks
+                    </p>
+                    <br>
+                    <h2>About the Team</h2>
+                    <p>
+                        Our team consists of five people:
+                        <br>
+                    </p>
+                    <br>
+
+                    <div class="col-md-2 text-center">
+                        <div class="thumbnail"> <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+                            <div class="caption">
+                                <h3> Tym Brandel
+                                    <br>
+                                    <small>Team Leader</small> </h3>
+                                    <p>L</p>
+                                    <ul class="list-inline">
+                                        <li><a href="#"><i class="fa fa-2x fa-facebook-square"></i></a> </li>
+                                        <li><a href="#"><i class="fa fa-2x fa-linkedin-square"></i></a> </li>
+                                        <li><a href="#"><i class="fa fa-2x fa-twitter-square"></i></a> </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <br>
+                        </p>
+                        <br><br><br>
+                    </div>
+
+                </center>
+
+            </div>
             <div class="panel-body">
-                               
-            </div>
-             <ul>
-                                   
-                                   
-                                     
-        <div class="text-center alert alert-warning">
-            <a href="https://www.facebook.com/HardinValleyACODEmy/" class="btn btn-social btn-facebook">
-            	<i class="fa fa-facebook"></i>&nbsp; Facebook</a>
-            <a href="https://plus.google.com/communities/106795819648573546757?hl=en" class="btn btn-social btn-google">
-            	<i class="fa fa-google-plus"></i>&nbsp; Google</a>
-            <a href="https://twitter.com/HVACODEmy" class="btn btn-social btn-twitter">
-            	<i class="fa fa-twitter"></i>&nbsp; Twitter </a>
-            <a href="https://www.linkedin.com/grp/home?gid=8434114" class="btn btn-social btn-linkedin">
-            	<i class="fa fa-linkedin"></i>&nbsp; Linkedin </a>
- </ul>
-                            
-         </div>
-                
-            <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
-  <div class="container-fluid" style="background-color:#00246B">
-      <li><center>
-                    <p><font color="white">HardinValleyACODEmy@gmail.com</p>
-                    <p><font color="white">2015 | By: Hardin Valley ACODEmy</p>
-                  </center>
-              </li>
-    <ul class="nav navbar-nav navbar-right">
-
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          
-          <li><a href="index.php" style="background-color:#00246B">Home</a></li>
-          <li><a href="about.php"><font color="#999999">About The Team</font></a></li>
-        </ul>
-      </div><!-- /.navbar-collapse -->
-	
-	</ul>
-  </div><!-- /.container-fluid -->
-</nav>
-                
-    <!-- CONTENT-WRAPPER SECTION END-->
-    <!--<footer>
-        <div class="container navbar-fixed-bottom">
-            <div class="row">
-                <div class="col-md-12">
-                    <center>
-                    	<p>HardinValleyACODEmy@gmail.com</p>
-                        <p> 2015 | By: Hardin Valley ACODEmy </p>
-                    </center>
-                </div>
 
             </div>
+            <?php require "social.php" ?>
+
         </div>
-    </footer>
-    <!-- FOOTER SECTION END-->
-    <!-- JAVASCRIPT AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
-    <!-- CORE JQUERY SCRIPTS -->
-    <script src="assets/js/jquery-1.11.1.js"></script>
-    <!-- BOOTSTRAP SCRIPTS  -->
-    <script src="assets/js/bootstrap.js"></script>
+
+        <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+            <div class="container-fluid" style="background-color:#00246B">
+                <li><center>
+                    <p><font color="white">HardinValleyACODEmy@gmail.com</p>
+                        <p><font color="white">2015 | By: Hardin Valley ACODEmy</p>
+                        </center>
+                    </li>
+                    <ul class="nav navbar-nav navbar-right">
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+
+                                <li><a href="index.php" style="background-color:#00246B">Home</a></li>
+                                <li><a href="about.php"><font color="#999999">About The Team</font></a></li>
+                            </ul>
+                        </div><!-- /.navbar-collapse -->
+
+                    </ul>
+                </div><!-- /.container-fluid -->
+            </nav>
+
+            <!-- CONTENT-WRAPPER SECTION END-->
+            <!--<footer>
+            <div class="container navbar-fixed-bottom">
+            <div class="row">
+            <div class="col-md-12">
+            <center>
+            <p>HardinValleyACODEmy@gmail.com</p>
+            <p> 2015 | By: Hardin Valley ACODEmy </p>
+        </center>
+    </div>
+
+</div>
+</div>
+</footer>
+<!-- FOOTER SECTION END-->
+<!-- JAVASCRIPT AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
+<!-- CORE JQUERY SCRIPTS -->
+<script src="assets/js/jquery-1.11.1.js"></script>
+<!-- BOOTSTRAP SCRIPTS  -->
+<script src="assets/js/bootstrap.js"></script>
 </body>
 </html>
