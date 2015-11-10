@@ -1,7 +1,7 @@
 <?php
 
-
-    require("common.php");
+    require("private.php");
+    
     require("roomProcessor.php");
     
     //TODO: Jackson create variable for each room with "TeacherName" + "Room name" from database based on current time.

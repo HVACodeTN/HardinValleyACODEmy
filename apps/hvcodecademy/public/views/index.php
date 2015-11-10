@@ -1,8 +1,5 @@
 <?php
 
-//connects to server
-require("common.php");
-
 //privates the page
 require("private.php");
 
