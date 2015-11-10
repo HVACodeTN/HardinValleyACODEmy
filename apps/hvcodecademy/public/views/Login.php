@@ -19,8 +19,7 @@
             SELECT 
                 UserID, 
                 UserName, 
-                AccountType,
-                Properties 
+                AccountType
             FROM Users 
             WHERE 
                 UserName = :UserName 

@@ -27,10 +27,10 @@
         // filter_var is a useful PHP function for validating form input, see: 
         // http://us.php.net/manual/en/function.filter-var.php 
         // http://us.php.net/manual/en/filter.filters.php 
-        if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) 
-        { 
-            die("Invalid E-Mail Address"); 
-        } 
+        // if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) 
+        // { 
+        //     die("Invalid E-Mail Address"); 
+        // } 
          
         // We will use this SQL query to see whether the username entered by the 
         // user is already in use.  A SELECT query is used to retrieve data from the database. 
@@ -158,13 +158,11 @@
             INSERT INTO Users (
                 UserName, 
                 UserID, 
-                AccountType, 
-                Properties 
+                AccountType 
             ) VALUES (
                 :UserName, 
                 :UserID, 
-                :AccountType, 
-                :Properties
+                :AccountType 
             ) "; 
          
          $query4 = " 
@@ -206,7 +204,6 @@
             $password = hash('sha256', $password . $salt); 
         } 
         $AccountType = 2; //AccountType 1 is Admin
-        $Properties = "[Properties go here]";
         
         // Here we prepare our tokens for insertion into the SQL query.  We do not 
         // store the original password; only the hashed version of it.  We do store 
@@ -214,8 +211,7 @@
         $query3_params = array( 
             ':UserName' => $_POST['username'], 
             ':UserID' => $UserID, 
-            ':AccountType' => $AccountType, 
-            ':Properties' => $Properties 
+            ':AccountType' => $AccountType 
         ); 
         
         $query4_params = array( 
@@ -281,9 +277,9 @@
     Username:<br /> 
     <input type="text" name="username" value="" /> 
     <br /><br /> 
-    E-Mail:<br /> 
+<!--    E-Mail:<br /> 
     <input type="text" name="email" value="" /> 
-    <br /><br /> 
+    <br /><br /> -->
     Password:<br /> 
     <input type="password" name="password" value="" /> 
     <br /><br /> 
