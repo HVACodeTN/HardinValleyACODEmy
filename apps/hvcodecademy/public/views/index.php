@@ -34,31 +34,8 @@ require("private.php");
     <![endif]-->
 </head>
 <body>
-    <img src="Header.jpg" alt="LOGO" style="width:100%;height:10%"/>
-    <!--<div class="navbar navbar-inverse set-radius-zero">
-        <div class="container">
-        
-            <div class="navbar-header">
-            
-             <img src="Header.jpg" alt="LOGO" height="180" width="1100"/>
-              
-
-            </div>
-
-            <div class="left-div">
-                <div class="user-settings-wrapper">
-                    <ul class="nav">
-
-                        
-</ul>
-                            </div> -->
-                        
-
-
-                    
-                </div>
-            </div>
-        </div>
+    
+<img src="" alt="LOGO" style="width:100%;height:10%"/>
     
     <!-- LOGO HEADER END-->
         <section class="menu-section">
@@ -81,6 +58,8 @@ require("private.php");
                 </div>
             </div>
         </section>
+        
+        
     <!-- MENU SECTION END-->
     <div class="content-wrapper">
         <div class="container">

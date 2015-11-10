@@ -163,7 +163,7 @@
         
             <div class="navbar-header">
             
-             <img src="Header.jpg" alt="LOGO" height="180" weight="42"/>
+             <img src="" alt="LOGO" height="180" weight="42"/>
               
 
             </div>

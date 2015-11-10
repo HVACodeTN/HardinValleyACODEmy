@@ -157,9 +157,9 @@
                         <?php foreach ($rooms as $key => $row){
                             echo "<option value='";
                             if ($row['RoomName']) {
-                                echo $row['RoomName'];
+                                echo htmlentities($row['RoomName'], ENT_QUOTES, 'UTF-8');
                             } else {
-                                echo roomString($row['RoomNumber']);
+                                echo htmlentities(roomString($row['RoomNumber']), ENT_QUOTES, 'UTF-8');
                             }
                             echo "'>";
                         } ?>
