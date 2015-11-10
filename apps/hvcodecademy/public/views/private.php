@@ -24,4 +24,3 @@ Hello <?php echo htmlentities($_SESSION['user']['UserName'], ENT_QUOTES, 'UTF-8'
     echo '<a href="UserList.php">Memberlist</a><br />';
 }?> 
 <a href="edit_account.php">Edit Account</a><br /> 
-<a href="Logout.php">Logout</a> 
