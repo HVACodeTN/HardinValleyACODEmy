@@ -14,8 +14,7 @@
     //Create Query
     $query = "SELECT
                 Name,
-                Room,
-                RoomGroup
+                Room
             FROM Schedule
             WHERE
                 Period = :Period";
@@ -45,7 +44,7 @@
         $row = $stmt->fetch();
         
         // Use data to create variable for schedule
-        $varName = roomString($row['RoomGroup'],$row['Room']);
+        $varName = roomString($row['Room']);
         global $$varName,$varName;
         $$varName = $row['Name']; // Takes row and makes it a variable with teacher name in it.
         echo $varName.": ".$$varName."\n"; //FIXME: Temp debug echo
