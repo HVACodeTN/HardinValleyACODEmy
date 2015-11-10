@@ -13,11 +13,14 @@
 
     //Create Query
     $query = "SELECT
-                Name,
-                Room
-            FROM Schedule
+                Schedule.Room, 
+                Users.UserName,
+                Rooms.RoomName
+            FROM Schedule,Users,Rooms
             WHERE
-                Period = :Period";
+                Schedule.Period = :Period AND 
+                Users.UserID = Schedule.UserID AND
+                Rooms.RoomNumber = Schedule.Room";
     $query_params = array(
         ':Period' => $period
     );
@@ -37,18 +40,22 @@
         die("Failed to run query: " . $ex->getMessage()); 
     }
 
+    //Radio Buttons:
+    // Down:B/C/D/E/F
+    // UP F/E/D
+    // Bus: A/Bus
     
     // Iterate Results
-    for ($i=0; $i < $num_results; $i++) { 
-        //Process Results
-        $row = $stmt->fetch();
-        
-        // Use data to create variable for schedule
-        $varName = roomString($row['Room']);
-        global $$varName,$varName;
-        $$varName = $row['Name']; // Takes row and makes it a variable with teacher name in it.
-        echo $varName.": ".$$varName."\n"; //FIXME: Temp debug echo
-    }
+    // for ($i=0; $i < $num_results; $i++) { 
+    //     //Process Results
+    //     $row = $stmt->fetch();
+    //     
+    //     // Use data to create variable for schedule
+    //     $varName = roomString($row['Room']);
+    //     global $$varName,$varName;
+    //     $$varName = $row['Name']; // Takes row and makes it a variable with teacher name in it.
+    //     echo $varName.": ".$$varName."\n"; //FIXME: Temp debug echo
+    // }
     
     //Put text on map
 
@@ -65,21 +72,29 @@
 
 <body>
 
-
-
-
-<TABLE BORDER="0" cellpadding="0" CELLSPACING="0">
-<TR>
-<!-- add img map img to background later (when I can scan it) place holder img for now to use for testing.-->
-<TD width="415" HEIGHT="300" VALIGN="Center" BACKGROUND="Header.jpg" Id="" alt="Schedule">
-
-<FONT SIZE="3" COLOR="Black" Id="$D101">D101</FONT>
-<br>
-<font size="3" color="black">D102</font>
-</TD>
-
-</TR>
-</TABLE>
+<!-- Add PHP Table -->
+<h1>Schedule</h1> 
+<table> 
+    <tr>  
+        <th>Room</th>  
+        <th>Username</th>  
+    </tr> 
+    <?php //Iterate Results
+        for ($i=0; $i < $num_results; $i++): 
+            //Process Results
+            $row = $stmt->fetch();?>
+        <tr> 
+            <td><?php 
+            if ($row['RoomName']) {
+                echo htmlentities($row['RoomName'], ENT_QUOTES, 'UTF-8');
+            } else {
+                echo htmlentities($row['RoomNumber'], ENT_QUOTES, 'UTF-8');
+            } ?></td> 
+            <td><?php echo htmlentities($row['UserName'], ENT_QUOTES, 'UTF-8'); ?></td> 
+        </tr> 
+    <?php endfor; ?> 
+</table> 
+<!-- End PHP Table -->
 
 
 </body>
