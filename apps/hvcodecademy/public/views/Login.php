@@ -193,7 +193,7 @@
                             -->
                             <!-- Button used for Submitting to server side code -->
                             <input type="submit" value="Login">
-                            </br>
+                            </br></br>
                             <!-- Hyperlink to Signup page -->
                             <rt><p>Click <a href="Register.php">Here</a> to Register</p></rt>
 
