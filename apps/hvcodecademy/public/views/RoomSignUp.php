@@ -19,7 +19,6 @@
         $stmt = $db->prepare($query); 
         $result = $stmt->execute();
         $num_results = $stmt->rowCount();
-        echo "$num_results";
     } 
     catch(PDOException $ex) 
     { 
