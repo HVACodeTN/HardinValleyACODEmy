@@ -12,8 +12,8 @@ require("private.php");
     <meta name="description" content="" />
     <meta name="author" content="" />
     <!--[if IE]>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <![endif]-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <![endif]-->
     <title>Home</title>
     <!-- BOOTSTRAP CORE STYLE  -->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
@@ -21,30 +21,31 @@ require("private.php");
     <link href="assets/css/font-awesome.css" rel="stylesheet" />
     <!-- CUSTOM STYLE  -->
     <link href="assets/css/style.css" rel="stylesheet" />
-     <!-- HTML5 Shiv and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- HTML5 Shiv and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
 <body>
-
-<?php require 'navHeader.php'; ?>
+    <?php require 'navHeader.php'; ?>
 
     <div class="content-wrapper">
         <div class="container">
 
-          <div class="main">
+            <div class="main">
 
-          </div>
+            </div>
             <div class="panel-body">
 
             </div>
             <?php require "social.php" ?>
 
-    <!-- CONTENT-WRAPPER SECTION END-->
-    <font color="white">
+            <!-- CONTENT-WRAPPER SECTION END-->
+            <?php require "bottomBar.php" ?>
+        </div>
+    </div>
     <!-- JAVASCRIPT AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
     <!-- CORE JQUERY SCRIPTS -->
     <script src="assets/js/jquery-1.11.1.js"></script>

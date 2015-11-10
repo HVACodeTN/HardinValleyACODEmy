@@ -140,8 +140,8 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <!--[if IE]>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <![endif]-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <![endif]-->
     <title>Login</title>
     <!-- BOOTSTRAP CORE STYLE  -->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
@@ -149,11 +149,11 @@
     <link href="assets/css/font-awesome.css" rel="stylesheet" />
     <!-- CUSTOM STYLE  -->
     <link href="assets/css/style.css" rel="stylesheet" />
-     <!-- HTML5 Shiv and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- HTML5 Shiv and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
 <body>
@@ -162,60 +162,55 @@
     <div class="content-wrapper">
         <div class="container">
 
-          <div class="main">
+            <div class="main">
                 <form action="Login.php" method="POST">
+                    <!-- Center everything within the from -->
+                    <center>
+                        <h1>Login</h1>
+                        <fieldset>
+                            <!-- Username Input -->
+                            <p><label for="username">Username:</label>
+                                <br>
+                                <input type="text" name="username" value="<?php echo $submitted_username; ?>" />
+                            </p>
 
+                            <!-- Password Input -->
+                            <p><label for="password">Password:</label>
+                                <br>
+                                <input type="password" name="password" id="passwordInput" value="">
+                            </p>
 
-    <!-- Center everything within the from -->
-    <center>
+                            <!-- Select if used for more then one school -->
+                            <!-- note we made fake school names -->
+                            <!--
+                            <select name="School">
+                            <option value="Hardin Valley">Hardin Valley</option>
+                            <option value="SchoolA">SchoolA</option>
+                            <option value="SchoolB">SchoolB</option>
+                            <option value="SchoolC">SchoolC</option>
+                            </select>
+                            <br> <rt> Select School </rt> <br>
+                            -->
+                            <!-- Button used for Submitting to server side code -->
+                            <input type="submit" value="Login">
+                            </br>
+                            <!-- Hyperlink to Signup page -->
+                            <rt><p>Click <a href="Register.php">Here</a> to Register</p></rt>
 
-    <h1>Login</h1>
-
-    <fieldset>
-
-    <!-- Username Input -->
-    <p><label for="username">Username:</label>
-    <br>
-    <input type="text" name="username" value="<?php echo $submitted_username; ?>" /> </p>
-
-    <!-- Password Input -->
-    <p><label for="password">Password:</label>
-    <br>
-    <input type="password" name="password" id="passwordInput" value=""></p>
-
-    <!-- Select if used for more then one school -->
-    <!-- note we made fake school names -->
-    <!--
-    <select name="School">
-    <option value="Hardin Valley">Hardin Valley</option>
-    <option value="SchoolA">SchoolA</option>
-    <option value="SchoolB">SchoolB</option>
-    <option value="SchoolC">SchoolC</option>
-    </select>
-    <br> <rt> Select School </rt> <br>
-    -->
-    <!-- Button used for Submitting to server side code -->
-    <input type="submit" value="Login">
-
-    <!-- Hyperlink to Signup page -->
-    <rt><p>Click <a href="Register.php">Here</a> to Register</p></rt>
-
-    <!-- end field -->
-    </fieldset>
-
-    </center>
-
-    </form>
-          </div>
+                            <!-- end field -->
+                        </fieldset>
+                    </center>
+                </form>
+            </div>
             <div class="panel-body">
 
             </div>
             <?php require "social.php" ?>
 
-
-    <!-- CONTENT-WRAPPER SECTION END-->
-    <?php require "bottomBar.php" ?>
-
+            <!-- CONTENT-WRAPPER SECTION END-->
+            <?php require "bottomBar.php" ?>
+        </div>
+    </div>
     <!-- JAVASCRIPT AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
     <!-- CORE JQUERY SCRIPTS -->
     <script src="assets/js/jquery-1.11.1.js"></script>
