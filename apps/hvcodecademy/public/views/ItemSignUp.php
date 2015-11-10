@@ -191,20 +191,7 @@
 
 
     <!-- CONTENT-WRAPPER SECTION END-->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <center>
-                    	<p>HardinValleyACODEmy@gmail.com</p>
-                        <p> 2015 | By: Hardin Valley ACODEmy </p>
-                    </center>
-                </div>
-
-            </div>
-        </div>
-    </footer>
-    <!-- FOOTER SECTION END-->
+    <?php require "bottomBar.php" ?>
     <!-- JAVASCRIPT AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
     <!-- CORE JQUERY SCRIPTS -->
     <script src="assets/js/jquery-1.11.1.js"></script>

@@ -73,53 +73,15 @@
 
             </div>
             <div class="panel-body">
-
             </div>
             <?php require "social.php" ?>
 
         </div>
-
-        <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
-            <div class="container-fluid" style="background-color:#00246B">
-                <li><center>
-                    <p><font color="white">HardinValleyACODEmy@gmail.com</p>
-                        <p><font color="white">2015 | By: Hardin Valley ACODEmy</p>
-                        </center>
-                    </li>
-                    <ul class="nav navbar-nav navbar-right">
-
-                        <!-- Collect the nav links, forms, and other content for toggling -->
-                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                            <ul class="nav navbar-nav">
-
-                                <li><a href="index.php" style="background-color:#00246B">Home</a></li>
-                                <li><a href="about.php"><font color="#999999">About The Team</font></a></li>
-                            </ul>
-                        </div><!-- /.navbar-collapse -->
-
-                    </ul>
-                </div><!-- /.container-fluid -->
-            </nav>
-
-            <!-- CONTENT-WRAPPER SECTION END-->
-            <!--<footer>
-            <div class="container navbar-fixed-bottom">
-            <div class="row">
-            <div class="col-md-12">
-            <center>
-            <p>HardinValleyACODEmy@gmail.com</p>
-            <p> 2015 | By: Hardin Valley ACODEmy </p>
-        </center>
     </div>
-
-</div>
-</div>
-</footer>
-<!-- FOOTER SECTION END-->
-<!-- JAVASCRIPT AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
-<!-- CORE JQUERY SCRIPTS -->
-<script src="assets/js/jquery-1.11.1.js"></script>
-<!-- BOOTSTRAP SCRIPTS  -->
-<script src="assets/js/bootstrap.js"></script>
+    <?php require "bottomBar.php" ?>
+    <!-- CORE JQUERY SCRIPTS -->
+    <script src="assets/js/jquery-1.11.1.js"></script>
+    <!-- BOOTSTRAP SCRIPTS  -->
+    <script src="assets/js/bootstrap.js"></script>
 </body>
 </html>

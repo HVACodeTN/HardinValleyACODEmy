@@ -1,4 +1,4 @@
-<?php 
+<?php
 
     // First execute common code to connection to the database and start the session
     require("common.php");
@@ -260,33 +260,32 @@
 <!doctype html>
 <html>
 <head>
-<meta charset="utf-8">
+    <meta charset="utf-8">
 
-<title>Register Page</title>
+    <title>Register Page</title>
 
-
-<img src="" width="" height="" alt="">
 </head>
 
 <body>
-<?php require 'navHeader.php'; ?>
+    <img src="\views\assets\img\Header.jpg" alt="LOGO" style="width:100%;height:10%"/>
 
-<center>
+    <center>
 
-<h1>Register</h1>
-<form action="Register.php" method="post">
-    Username:<br />
-    <input type="text" name="username" value="" />
-    <br /><br />
-<!--    E-Mail:<br />
-    <input type="text" name="email" value="" />
-    <br /><br /> -->
-    Password:<br />
-    <input type="password" name="password" value="" />
-    <br /><br />
-    <input type="submit" value="Register" />
+        <h1>Register</h1>
+        <form action="Register.php" method="post">
+            Username:<br />
+            <input type="text" name="username" value="" />
+            <br /><br />
+            <!--    E-Mail:<br />
+            <input type="text" name="email" value="" />
+            <br /><br /> -->
+            Password:<br />
+            <input type="password" name="password" value="" />
+            <br /><br />
+            <input type="submit" value="Register" />
 
-</form>
-</center>
+        </form>
+    </center>
+    <?php require "bottomBar.php" ?>
 </body>
 </html>

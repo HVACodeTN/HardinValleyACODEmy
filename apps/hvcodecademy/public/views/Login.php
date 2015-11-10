@@ -157,7 +157,7 @@
     <![endif]-->
 </head>
 <body>
-    <?php require 'navHeader.php'; ?>
+    <img src="\views\assets\img\Header.jpg" alt="LOGO" style="width:100%;height:10%"/>
 
     <div class="content-wrapper">
         <div class="container">
@@ -214,20 +214,8 @@
 
 
     <!-- CONTENT-WRAPPER SECTION END-->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <center>
-                    	<p>HardinValleyACODEmy@gmail.com</p>
-                        <p> 2015 | By: Hardin Valley ACODEmy </p>
-                    </center>
-                </div>
+    <?php require "bottomBar.php" ?>
 
-            </div>
-        </div>
-    </footer>
-    <!-- FOOTER SECTION END-->
     <!-- JAVASCRIPT AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
     <!-- CORE JQUERY SCRIPTS -->
     <script src="assets/js/jquery-1.11.1.js"></script>
