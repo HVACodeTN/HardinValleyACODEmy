@@ -9,7 +9,7 @@
     //$D101="TeacherName" + " D101";
 
     //TODO: Logic to chose Period
-    $period = 1;
+    $period = 2;
 
     //Create Query
     $query = "SELECT
@@ -44,7 +44,20 @@
     // Down:B/C/D/E/F
     // UP F/E/D
     // Bus: A/Bus
-    
+    switch ($Location)) {
+        case 'Down':
+            # code...
+            break;
+        case 'UP':
+            # code...
+            break;
+        case 'Bus':
+            # code...
+            break;
+        default:
+            # code...
+            break;
+    }
     // Iterate Results
     // for ($i=0; $i < $num_results; $i++) { 
     //     //Process Results
@@ -153,7 +166,7 @@
             if ($row['RoomName']) {
                 echo htmlentities($row['RoomName'], ENT_QUOTES, 'UTF-8');
             } else {
-                echo htmlentities($row['RoomNumber'], ENT_QUOTES, 'UTF-8');
+                echo roomString($row['Room']); 
             } ?></td> 
             <td><?php echo htmlentities($row['UserName'], ENT_QUOTES, 'UTF-8'); ?></td> 
         </tr> 
