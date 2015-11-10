@@ -1,7 +1,7 @@
 <?php
     // connect to database, and make page private.
-    require("common.php");
     require("private.php");
+
     require("roomProcessor.php");
     
     //Create Query
@@ -46,6 +46,11 @@
     { 
         //display if failed to run 
         die("Failed to run query2: " . $ex->getMessage()); 
+    }
+    //Create current teacher for later:
+    $currentTeacher = "";
+    if ($_SESSION['user']['AccountType']=='Teacher') {
+        $currentTeacher = $_SESSION['user']['UserName'];
     }
 ?>
 <!DOCTYPE html>
@@ -131,7 +136,7 @@
    <form action="cartsignup.php" method="POST">
        <fieldset>
            <label for="">Teacher:</label>
-                <input id="" name="" type="text" list="Teacher"/>
+                <input id="" name="" type="text" list="Teacher" value= <?php echo "\"$currentTeacher\"" ?>/>
                     <datalist id="Teacher" placeholder="Teacher" class="dropdown">
                         <!--Teachers-->
                         <option value="Mrs.West(TheDefault)">
