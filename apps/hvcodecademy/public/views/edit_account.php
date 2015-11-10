@@ -75,6 +75,9 @@
     } 
      
 ?> 
+
+<?php require 'navHeader.php'; ?>
+
 <h1>Edit Account</h1> 
 
 <form action="edit_account.php" method="post"> 

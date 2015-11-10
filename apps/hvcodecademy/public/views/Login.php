@@ -157,33 +157,8 @@
     <![endif]-->
 </head>
 <body>
-    
-    <div class="navbar navbar-inverse set-radius-zero">
-        <div class="container">
-        
-            <div class="navbar-header">
-            
-             <img src="" alt="LOGO" height="180" weight="42"/>
-              
+    <?php require 'navHeader.php'; ?>
 
-            </div>
-
-            <div class="left-div">
-                <div class="user-settings-wrapper">
-                    <ul class="nav">
-
-                        
-</ul>
-                            </div>
-                        
-
-
-                    
-                </div>
-            </div>
-        </div>
-  
-    <!-- MENU SECTION END-->
     <div class="content-wrapper">
         <div class="container">
         

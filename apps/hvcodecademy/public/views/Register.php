@@ -269,6 +269,7 @@
 </head>
 
 <body>
+<?php require 'navHeader.php'; ?>
 
 <center>
 

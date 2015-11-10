@@ -23,58 +23,12 @@
     <![endif]-->
 </head>
 <body>
-    <img src="Header.jpg" alt="LOGO" style="width:100%;height:10%"/>
-    <!--<div class="navbar navbar-inverse set-radius-zero">
-        <div class="container">
-        
-            <div class="navbar-header">
-            
-             <img src="Header.jpg" alt="LOGO" height="180" width="1100"/>
-              
+    <?php require 'navHeader.php'; ?>
 
-            </div>
-
-            <div class="left-div">
-                <div class="user-settings-wrapper">
-                    <ul class="nav">
-
-                        
-</ul>
-                            </div> 
-                        
-
-
-                    
-                </div>
-            </div>
-        </div>-->
-    
-    <!-- LOGO HEADER END-->
-        <section class="menu-section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="navbar-collapse collapse ">
-                            <ul id="menu-top" class="nav navbar-nav navbar-left ">
-                               
-                                <li><a href="Index.php">Home</a></li>
-                                <li><a href="Map_Schedule">Schedule</a></li>
-                                <li><a href="About.php">About Us</a></li>
-                                 <li><a href="MemberList.php">Member list</a></li>
-                                <li><a href="Logout.php">Logout</a></li>
-    
-                            </ul>
-                        </div>
-                    </div>
-    
-                </div>
-            </div>
-        </section>
-    <!-- MENU SECTION END-->
     <div class="content-wrapper">
-        <div class="container">
+    <div class="container">
         
-          <div class="main">
+    <div class="main">
 	<center>
   <h2>About CodeTN</h2>
 	<p>
