@@ -1,11 +1,32 @@
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>Untitled Document</title>
-</head>
+<?php
+    // connect to database, and make page private.
+    require("common.php");
+    require("private.php");
+    
+    //Create Query
+    $query = "SELECT
+                UserName,
+                AccountType
+            FROM Users
+            WHERE
+                AccountType = 'Teacher'";
+    
+    $num_results = 0;
+    try 
+    { 
+        // Execute the query against the database 
+        $stmt = $db->prepare($query); 
+        $result = $stmt->execute();
+        $num_results = $stmt->rowCount();
+        echo "$num_results";
+    } 
+    catch(PDOException $ex) 
+    { 
+        //display if failed to run 
+        die("Failed to run query: " . $ex->getMessage()); 
+    }
 
-<body>
+?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -242,10 +263,15 @@
                 <input id="" name="" type="text" list="Teacher"/>
                     <datalist id="Teacher" placeholder="Teacher" class="dropdown">
                         <!--Teachers-->
-                        <option value="Mrs.West">
-                        <option value="">
-                        <option value="">
-                        <option value="">
+                        <option value="Mrs.West(TheDefault)">
+                        <?php 
+                        // Iterate Results
+                        for ($i=0; $i < $num_results; $i++) { 
+                            //Process Results
+                            $row = $stmt->fetch();
+                            echo '<option value="'. $row['UserName'] .'">';
+                        }
+                        ?>
        </fieldset>
        			<br>
        <fieldset>
