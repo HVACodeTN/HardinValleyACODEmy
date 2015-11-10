@@ -3,7 +3,7 @@
     require("private.php");
 
     require("roomProcessor.php");
-    
+
     //Create Query
     $query = "SELECT
                 UserName,
@@ -11,19 +11,19 @@
             FROM Users
             WHERE
                 AccountType = 'Teacher'";
-    
+
     $num_results = 0;
-    try 
-    { 
-        // Execute the query against the database 
-        $stmt = $db->prepare($query); 
+    try
+    {
+        // Execute the query against the database
+        $stmt = $db->prepare($query);
         $result = $stmt->execute();
         $num_results = $stmt->rowCount();
     } 
-    catch(PDOException $ex) 
-    { 
-        //display if failed to run 
-        die("Failed to run query: " . $ex->getMessage()); 
+    catch(PDOException $ex)
+    {
+        //display if failed to run
+        die("Failed to run query: " . $ex->getMessage());
     }
 
     //Create Query for Rooms
@@ -32,19 +32,19 @@
                 RoomName
             FROM Rooms
             ";
-    
-    try 
-    { 
-        // Execute the query against the database 
-        $stmt2 = $db->prepare($query2); 
+
+    try
+    {
+        // Execute the query against the database
+        $stmt2 = $db->prepare($query2);
         $result = $stmt2->execute();
-        
+
         $rooms = $stmt2->fetchAll();
-    } 
-    catch(PDOException $ex) 
-    { 
-        //display if failed to run 
-        die("Failed to run query2: " . $ex->getMessage()); 
+    }
+    catch(PDOException $ex)
+    {
+        //display if failed to run
+        die("Failed to run query2: " . $ex->getMessage());
     }
     //Create current teacher for later:
     $currentTeacher = "";
@@ -81,11 +81,11 @@
 
 <div class="content-wrapper">
         <div class="container">
-        
+
           <div class="main" align="center">
-  
-  <!--Code for if select is wanted over datalist -->  
-  
+
+  <!--Code for if select is wanted over datalist -->
+
    <form action="cartsignup.php" method="POST">
        <fieldset>
            <label for="">Teacher:</label>
@@ -93,9 +93,9 @@
                     <datalist id="Teacher" placeholder="Teacher" class="dropdown">
                         <!--Teachers-->
                         <option value="Mrs.West(TheDefault)">
-                        <?php 
+                        <?php
                         // Iterate Results
-                        for ($i=0; $i < $num_results; $i++) { 
+                        for ($i=0; $i < $num_results; $i++) {
                             //Process Results
                             $row = $stmt->fetch();
                             echo '<option value="'. $row['UserName'] .'">';
@@ -117,9 +117,9 @@
                             echo "'>";
                         } ?>
                 </datalist>
-       </fieldset>          
+       </fieldset>
                 <br>
-       <fieldset> 
+       <fieldset>
            <label for="">Period:</label>
                 <input id="" name="" type="text" list="Period" />
                     <datalist id="Period" placeholder="Period">
@@ -129,20 +129,20 @@
                         <option value="Forth Period">
                     </datalist>
        </fieldset>
-       			<br> 
+       			<br>
    </form>
-   
- 
-   
-   
+
+
+
+
           </div>
             <div class="panel-body">
-                               
+
             </div>
              <ul>
-                                   
-                                   
-                                     
+
+
+
         <div class="text-center alert alert-warning">
             <a href="https://www.facebook.com/HardinValleyACODEmy/" class="btn btn-social btn-facebook">
             	<i class="fa fa-facebook"></i>&nbsp; Facebook</a>
@@ -153,9 +153,9 @@
             <a href="https://www.linkedin.com/grp/home?gid=8434114" class="btn btn-social btn-linkedin">
             	<i class="fa fa-linkedin"></i>&nbsp; Linkedin </a>
  </ul>
-                            
+
          </div>
-                
+
     <!-- CONTENT-WRAPPER SECTION END-->
     <footer>
         <div class="container">
