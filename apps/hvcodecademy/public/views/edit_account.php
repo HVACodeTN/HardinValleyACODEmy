@@ -75,8 +75,9 @@
     }
 
 ?>
-
+<?php require 'Link.php'; ?>
 <?php require 'navHeader.php'; ?>
+
 
 <h1>Edit Account</h1>
 
