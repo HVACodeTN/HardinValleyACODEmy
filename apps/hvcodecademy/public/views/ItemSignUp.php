@@ -70,7 +70,7 @@ if ($_SESSION['user']['AccountType']=='Teacher') {
     <!-- CUSTOM STYLE  -->
     <link href="assets/css/style.css" rel="stylesheet" />
     <!-- DATA SELECTOR BOOTSTRAPS -->
-    <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    <!-- <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet"> -->
     <link rel="stylesheet" type="text/css" media="screen" href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">
      <!-- HTML5 Shiv and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -84,7 +84,7 @@ if ($_SESSION['user']['AccountType']=='Teacher') {
 
     <div class="content-wrapper">
         <div class="container">
-            <div class="main" align="center">
+            <div class="main">
             <!--Code for if select is wanted over datalist
             <form action="cartsignup.php" method="POST">
                 <fieldset>
@@ -125,7 +125,7 @@ if ($_SESSION['user']['AccountType']=='Teacher') {
                     <option value="">
                 </fieldset>
             </form> -->
-
+                <center>
                 <form action="cartsignup.php" method="POST">
 
                     <fieldset>
@@ -211,11 +211,13 @@ if ($_SESSION['user']['AccountType']=='Teacher') {
                         </script>
                     </fieldset>
                 </form>
+                </center>
             </div>
             <div class="panel-body">
 
             </div>
             <?php require "social.php" ?>
+
         </div>
     </div>
     <!-- CONTENT-WRAPPER SECTION END-->
