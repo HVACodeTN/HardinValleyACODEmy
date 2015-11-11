@@ -15,7 +15,7 @@
         }
 
     }
-    
+
     function roomNumber($roomString)
     {
         //this function takes a string (A234), and returns  number (1234).
@@ -25,4 +25,9 @@
             $number = substr($roomString,1,3);
             return intval($letterNum.$number);
         }
+    }
+
+    function roomInput($inputString) {
+        // Process a room input from the website
+        
     }

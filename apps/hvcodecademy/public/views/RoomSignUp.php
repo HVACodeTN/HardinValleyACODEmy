@@ -4,6 +4,15 @@ require("private.php");
 
 require("roomProcessor.php");
 
+if(!empty($_POST))
+{
+    //SignUp Request recived
+    $teacher = $_POST['teacher'];
+    $room = $_POST['room'];
+    $period = $_POST['period'];
+    $date = $_POST['date'];
+    echo $teacher.$room.$period.$date;
+} //else {
 //Create Query
 $query = "SELECT
 UserName,
@@ -46,6 +55,7 @@ catch(PDOException $ex)
     //display if failed to run
     die("Failed to run query2: " . $ex->getMessage());
 }
+
 //Create current teacher for later:
 $currentTeacher = "";
 if ($_SESSION['user']['AccountType']=='Teacher') {
@@ -75,8 +85,8 @@ if ($_SESSION['user']['AccountType']=='Teacher') {
     <!-- CUSTOM STYLE  -->
     <link href="assets/css/style.css" rel="stylesheet" />
     <!-- DATA SELECTOR BOOTSTRAPS -->
-    <!-- <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet"> -->
-    <link rel="stylesheet" type="text/css" media="screen" href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css">
+    <!-- <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css"> -->
     <!-- HTML5 Shiv and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -96,13 +106,12 @@ if ($_SESSION['user']['AccountType']=='Teacher') {
 
                 <!--Code for if select is wanted over datalist -->
 
-                <form action="cartsignup.php" method="POST">
+                <form action="RoomSignUp.php" method="POST">
                     <fieldset>
                         <label for="">Teacher:</label>
-                        <input id="" name="" type="text" list="Teacher" value= <?php echo "\"$currentTeacher\"" ?>/>
+                        <input id="" name="teacher" type="text" list="Teacher" value= <?php echo "\"$currentTeacher\"" ?>/>
                         <datalist id="Teacher" placeholder="Teacher" class="dropdown">
                             <!--Teachers-->
-                            <option value="Mrs.West(TheDefault)">
                             <?php
                             // Iterate Results
                             for ($i=0; $i < $num_results; $i++) {
@@ -115,8 +124,8 @@ if ($_SESSION['user']['AccountType']=='Teacher') {
                     </fieldset>
                     <br>
                     <fieldset>
-                        <label for="">   Room:</label>
-                        <input id="" name="" type="text" list="Room"/>
+                        <label for="">Room:</label>
+                        <input id="" name="room" type="text" list="Room"/>
                         <datalist id="Room" placeholder="Room" class="dropdown">
                             <?php foreach ($rooms as $key => $row) {
                                 echo "<option value='";
@@ -133,24 +142,25 @@ if ($_SESSION['user']['AccountType']=='Teacher') {
                     <br>
                     <fieldset>
                         <label for="">Period:</label>
-                        <input id="" name="" type="text" list="Period" />
-                        <datalist id="Period" placeholder="Period">
-                            <option value="First Period">
-                            <option value="Second Period">
-                            <option value="Third Period">
-                            <option value="Forth Period">
-                        </datalist>
+                        <select id="" name="period" type="text" list="Period" />
+                        <!-- <datalist id="Period" placeholder="Period"> -->
+                            <option value="0">7am Class</option>
+                            <option value="1">First Period</option>
+                            <option value="2">Second Period</option>
+                            <option value="3">Third Period</option>
+                            <option value="4">Forth Period</option>
+                        </select>
                     </fieldset>
-                    <br>
+                    <br />
                     <fieldset>
                     	<label for="">Date:</label>
-                        	<div id="datetimepicker" class="input-append date">
-      							<input type="text"></input>
-      								<span class="add-on">
-        								<i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
-      								</span>
-   							</div>
-					<script type="text/javascript"
+                    	<div id="datetimepicker" class="input-append date">
+  							<input type="date" name="date"></input>
+  								<!-- <span class="add-on">
+    								<i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+  								</span> -->
+						</div>
+					<!-- <script type="text/javascript"
                         src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js">
                     </script>
                     <script type="text/javascript"
@@ -167,7 +177,11 @@ if ($_SESSION['user']['AccountType']=='Teacher') {
                         format: 'dd/MM/yyyy hh:mm:ss',
                         language: 'pt-BR'
                       });
-                    </script>
+                    </script> -->
+                    </fieldset>
+                    <br />
+                    <!-- Button used for Submitting to server side code -->
+                    <input type="submit" value="SignUp">
                 </form>
             </div>
             <div class="panel-body">
