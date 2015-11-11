@@ -1,3 +1,57 @@
+<?php
+// connect to database, and make page private.
+require("private.php");
+
+require("roomProcessor.php");
+
+//Create Query
+$query = "SELECT
+UserName,
+AccountType
+FROM Users
+WHERE
+AccountType = 'Teacher'";
+
+$num_results = 0;
+try
+{
+    // Execute the query against the database
+    $stmt = $db->prepare($query);
+    $result = $stmt->execute();
+    $num_results = $stmt->rowCount();
+}
+catch(PDOException $ex)
+{
+    //display if failed to run
+    die("Failed to run query: " . $ex->getMessage());
+}
+
+//Create Query for Rooms
+$query2 = "SELECT
+RoomNumber,
+RoomName
+FROM Rooms
+";
+
+try
+{
+    // Execute the query against the database
+    $stmt2 = $db->prepare($query2);
+    $result = $stmt2->execute();
+
+    $rooms = $stmt2->fetchAll();
+}
+catch(PDOException $ex)
+{
+    //display if failed to run
+    die("Failed to run query2: " . $ex->getMessage());
+}
+//Create current teacher for later:
+$currentTeacher = "";
+if ($_SESSION['user']['AccountType']=='Teacher') {
+    $currentTeacher = $_SESSION['user']['UserName'];
+}
+?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
