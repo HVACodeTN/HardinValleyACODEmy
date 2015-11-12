@@ -4,16 +4,7 @@ require("private.php");
 
 require("roomProcessor.php");
 
-if(!empty($_POST))
-{
-    //SignUp Request recived
-    $teacher = $_POST['teacher'];
-    $room = $_POST['room'];
-    $period = $_POST['period'];
-    $date = $_POST['date'];
-    echo $teacher.$room.$period.$date;
-} //else {
-//Create Query
+//Create Query to get teachers
 $query = "SELECT
 UserName,
 AccountType
@@ -56,6 +47,101 @@ catch(PDOException $ex)
     die("Failed to run query2: " . $ex->getMessage());
 }
 
+
+if(!empty($_POST))
+{
+    //SignUp Request recived
+
+    // Get UserID
+    $squery = "SELECT
+    UserID
+    FROM Users
+    WHERE
+    UserName = :UserName";
+
+    $squery_params = array(
+        ':UserName' => $_POST['teacher']
+    );
+    $UserID;
+    try
+    {
+        // Execute the query against the database
+        $sstmt = $db->prepare($squery);
+        $result = $sstmt->execute($squery_params);
+        $UserID = $sstmt->fetch()['UserID'];
+    }
+    catch(PDOException $ex)
+    {
+        //display if failed to run
+        //die("Failed to run search query: " . $ex->getMessage());
+        $insertFailMsg = "Could not find UsernName";
+    }
+    //Get Room
+    $room = roomNumber($_POST['room']);
+    if (!$room) {
+        $rquery = "SELECT
+            RoomNumber
+        FROM Rooms
+        WHERE
+        RoomName = :RoomName";
+
+        try
+        {
+            // Execute the query against the database
+            $rstmt = $db->prepare($rquery);
+            $result = $rstmt->execute(array(':RoomName' => $_POST['room']));
+            $room = $rstmt->fetch()['RoomNumber'];
+        }
+        catch(PDOException $ex)
+        {
+            //display if failed to run
+            // die("Failed to run room query: " . $ex->getMessage());
+            $insertFailMsg = "Could not find Room";
+        }
+    }
+    $iquery_params = array(
+        ':Room' => $room,
+        ':Date' => $_POST['date'],
+        ':Period' => $_POST['period']
+    );
+
+    $iquery_params[':UserID'] = $UserID;
+
+    // insert indo db
+    $iquery = "INSERT INTO RoomCheckout (
+        Room,
+        UserID,
+        Date,
+        Period
+    ) VALUES (
+        :Room,
+        :UserID,
+        :Date,
+        :Period
+    )";
+
+    if (!$room) {
+        $insertFailMsg = "Could not find Room".htmlentities($room, ENT_QUOTES, 'UTF-8');
+    } else if (!$UserID) {
+        $insertFailMsg = "Could not find UsernName";
+    } else {
+        // Execute the query to create the user
+        try
+        {
+                $istmt = $db->prepare($iquery);
+                $istmt->execute($iquery_params);
+        }
+        catch(PDOException $ex)
+        {
+            // Note: On a production website, you should not output $ex->getMessage().
+            // It may provide an attacker with helpful information about your code.
+           die("Failed to run insert query: " . $ex->getMessage());
+           $insertFailMsg = "Could not checkout Room: $room";
+        }
+        $insertSuccess = true; // insert query succesful
+    }
+}
+
 //Create current teacher for later:
 $currentTeacher = "";
 if ($_SESSION['user']['AccountType']=='Teacher') {
@@ -79,6 +165,14 @@ if ($_SESSION['user']['AccountType']=='Teacher') {
 
                 <!--Code for if select is wanted over datalist -->
 
+                <!-- Notify user of success -->
+                <?php if ($insertSuccess): ?>
+                    <h4>You have succesfully signed up for room: <?php echo $_POST['room']; ?></h4>
+                    <br />
+                <?php endif; if ($insertFailMsg): ?>
+                    <h4><?php echo $insertFailMsg ?></h4>
+                    <br />
+                <?php endif; ?>
                 <form action="RoomSignUp.php" method="POST">
                     <fieldset>
                         <label for="">Teacher:</label>
@@ -98,7 +192,7 @@ if ($_SESSION['user']['AccountType']=='Teacher') {
                     <br>
                     <fieldset>
                         <label for="">Room:</label>
-                        <input id="" name="room" type="text" list="Room"/>
+                        <input id="" name="room" type="text" list="Room" autofocus/>
                         <datalist id="Room" placeholder="Room" class="dropdown">
                             <?php foreach ($rooms as $key => $row) {
                                 echo "<option value='";
@@ -115,20 +209,22 @@ if ($_SESSION['user']['AccountType']=='Teacher') {
                     <br>
                     <fieldset>
                         <label for="">Period:</label>
-                        <select id="" class="dropdown" name="period" type="text" list="Period" />
-                        <!-- <datalist id="Period" placeholder="Period"> -->
+                        <input id="" class="dropdown" name="period" type="text" list="Period" />
+                        <datalist id="Period" placeholder="Period">
                             <option value="0">7am Class</option>
                             <option value="1">First Period</option>
                             <option value="2">Second Period</option>
                             <option value="3">Third Period</option>
                             <option value="4">Fourth Period</option>
-                        </select>
+                            <option value="5">Flight Time</option>
+                            <option value="6">Bus Duty</option>
+                        </datalist>
                     </fieldset>
                     <br />
                     <fieldset>
                     	<label for="">Date:</label>
                     	<div id="datetimepicker" class="input-append date">
-							<input type="date" name="date"></input>
+							<input type="date" name="date" value="<?php echo Date("Y-m-d")?>"></input>
 								<!-- <span class="add-on">
     								<i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
 								</span> -->
