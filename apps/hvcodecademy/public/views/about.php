@@ -45,7 +45,7 @@ require("private.php");
           <!--  <div class="container"
             <div class="row row-centered"
             <div class="col-md-2 text-center">
-                <div class="thumbnail"> <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+                <div class="thumbnail"> <img src="assets/img/me3.jpg" width="184" height="183" alt=""/>
                   <div class="caption">
 
                       <center><h3> Tym Brandel
@@ -69,7 +69,7 @@ require("private.php");
 
               <div class="row row-centered">
               <div class="col-sm-2 text-center">
-                  <div class="thumbnail"> <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+                  <div class="thumbnail"> <img src="assets/img/Jackson.jpg" width="4128" height="2322" alt=""/>
                     <div class="caption">
                       <h3> Jackson Smith
                         <br>
@@ -88,7 +88,7 @@ require("private.php");
                 </div>
 
                 <div class="col-sm-2 text-center">
-                    <div class="thumbnail"> <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+                    <div class="thumbnail"> <img src="assets/img/Sean Toll.jpg" width="1195" height="1593" alt=""/>
                       <div class="caption">
                         <h3> Sean Toll
                           <br>
@@ -109,7 +109,7 @@ require("private.php");
 
                   <div class="row row-centered">
                   <div class="col-sm-2 text-center">
-                      <div class="thumbnail"> <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+                      <div class="thumbnail"> <img src="assets/img/Joey Townsand.jpg" width="960" height="1280" alt=""/>
                         <div class="caption">
                           <h3> Joey Townsend
                             <br>
@@ -128,7 +128,7 @@ require("private.php");
                     </div>
 
                     <div class="col-sm-2 text-center">
-                        <div class="thumbnail"> <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+                        <div class="thumbnail"> <img src="assets/img/Jack Anderson.jpg" width="168" height="483" alt=""/>
                           <div class="caption">
                             <h3> Jack Anderson
                               <br>
@@ -154,7 +154,7 @@ require("private.php");
             <div class="container">
               <div class="row row-centered">
                 <div class="col-xs-12 col-centered">
-                  <center><div class="thumbnail"> <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+                  <center><div class="thumbnail"> <img src="assets/img/me3.jpg" width="184" height="183" alt=""/>
                     <div class="caption">
                         <h3> Tym Brandel
                           <br>
@@ -162,7 +162,7 @@ require("private.php");
                           <p>Tym primarily spent his time working on HTML code when
                              he was not guiding the team as a whole.
                           </p>
-                        </div>
+                    </div>
                             </div>
                             <br>
                           </p> </center>
@@ -170,28 +170,28 @@ require("private.php");
                 </div>
               <div class="row row-centered">
                 <div class="col-xs-6 col-centered">
-                  <center><div class="thumbnail"> <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-                    <div class="caption">
-                        <h3> Jackson Smith
+                  <center><div class="thumbnail"> <img src="assets/img/Jackson.jpg" width="516" height="290.25" alt=" "/>
+<div class="caption">
+                    <h3> Jackson Smith
                           <br>
                           <small>PHP Extraordinaire</small> </h3>
                           <p>Jackson was the master of the PHP arts, filling out the databases in style.
                           </p>
-                        </div>
+                    </div>
                             </div>
                             <br>
                           </p> </center>
                       <br><br><br>
                 </div>
                 <div class="col-xs-6 col-centered">
-                  <center><div class="thumbnail"> <img class="img-responsive" src="http://placehold.it/750x450" alt="">
-                    <div class="caption">
-                        <h3> Sean Toll
+                  <center><div class="thumbnail"> <img src="assets/img/Sean Toll.jpg" width="398.3333333333333" height="531" alt=""/>
+<div class="caption">
+                    <h3> Sean Toll
                           <br>
                           <small>CSS Connoisseur.</small> </h3>
                           <p>Sean made the websites presentable in a time when they looked bland.
                           </p>
-                        </div>
+                    </div>
                             </div>
                             <br>
                           </p> </center>
@@ -200,33 +200,33 @@ require("private.php");
               </div>
               <div class="row row-centered">
                 <div class="col-xs-6 col-centered">
-                  <center><div class="thumbnail"> <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+                  <center><div class="thumbnail"> <img src="assets/img/Joey Townsand.jpg" width="480" height="640" alt=""/>
                     <div class="caption">
                         <h3> Joey Townsend
                           <br>
                           <small>Database Delinquent</small> </h3>
                           <p>Joey assisted Jackson in his PHP objectives.
                           </p>
-                        </div>
+                    </div>
                             </div>
                             <br>
                           </p> </center>
                       <br><br><br>
                 </div>
                 <div class="col-xs-6 col-centered">
-                  <center><div class="thumbnail"> <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+                  <center><div class="thumbnail"> <img src="assets/img/Jack Anderson.jpg" width="168" height="483" alt=""/>
                     <div class="caption">
                         <h3> Jack Anderson
                           <br>
                           <small>HTML Editor</small> </h3>
                           <p>Jack was there, too.
                           </p>
-                        </div>
+                    </div>
                             </div>
                             <br>
                           </p> </center>
                       <br><br><br>
-                    </div>
+                </div>
                 </div>
                 <div class="row row-centered">
                 <div class="col-xs-12 col-centered">
@@ -240,7 +240,7 @@ require("private.php");
                 </div>
               </div>
               </div>
-            </div>
+          </div>
 
             <div class="panel-body">
             </div>
