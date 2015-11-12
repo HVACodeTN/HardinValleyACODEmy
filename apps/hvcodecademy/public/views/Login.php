@@ -132,9 +132,12 @@
     }
 
 ?>
-
-<?php require 'Link.php'; ?>
-
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Login</title>
+    <?php require 'Link.php'; ?>
+</head>
 <body>
     <img src="\views\assets\img\Header.jpg" alt="LOGO" style="width:100%;height:10%"/>
 

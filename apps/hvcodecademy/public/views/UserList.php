@@ -43,9 +43,12 @@ catch(PDOException $ex)
 // Finally, we can retrieve all of the found rows into an array using fetchAll
 $rows = $stmt->fetchAll();
 ?>
-
-<?php require 'Link.php'; ?>
-
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>User List</title>
+    <?php require 'Link.php'; ?>
+</head>
 <body>
     <?php require 'navHeader.php'; ?>
 
@@ -54,7 +57,7 @@ $rows = $stmt->fetchAll();
 
             <div class="main">
                 <!-- Add PHP Table -->
-                <h1>Memberlist</h1>
+                <h1>User List</h1>
                 <table>
                     <tr>
                         <th>ID</th>

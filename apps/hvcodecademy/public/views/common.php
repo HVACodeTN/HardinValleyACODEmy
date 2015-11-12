@@ -51,9 +51,11 @@ if(function_exists('get_magic_quotes_gpc') && get_magic_quotes_gpc())
         undo_magic_quotes_gpc($_COOKIE);
     }
 
+	//set timezone
+	date_default_timezone_set("America/New_York");
 
 	// Tells web browser that encoded in UTF-8 and to send back in UTF-8.
 	header('Content-Type: text/html; charset=utf-8');
-	
+
 	//used to store information from the user on server side
 	session_start();

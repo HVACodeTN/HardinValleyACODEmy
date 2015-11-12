@@ -52,29 +52,21 @@ if ($_SESSION['user']['AccountType']=='Teacher') {
     $currentTeacher = $_SESSION['user']['UserName'];
 }
 ?>
-<<<<<<< HEAD
-
-<?php require 'Link.php'; ?>
-
-=======
-
->>>>>>> origin/master
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Cart SignUp</title>
+    <?php require 'Link.php'; ?>
+</head>
 <body>
 
     <?php require 'navHeader.php'; ?>
 
     <div class="content-wrapper">
         <div class="container">
-<<<<<<< HEAD
             <div class="main" align="center">
-            <!--Code for if select is wanted over datalist-->
-            
-            <!--<form action="cartsignup.php" method="POST">
-=======
-            <div class="main">
             <!--Code for if select is wanted over datalist
             <form action="cartsignup.php" method="POST">
->>>>>>> origin/master
                 <fieldset>
                     <label for="">Teacher:</label>
                     <select id="" name="select" type="text" list="Teacher"/>
@@ -113,14 +105,7 @@ if ($_SESSION['user']['AccountType']=='Teacher') {
                     <option value="">
                 </fieldset>
             </form> -->
-<<<<<<< HEAD
-
                 <form action="ItemSignUp.php" method="POST">
-=======
-                <center>
-                <form action="cartsignup.php" method="POST">
->>>>>>> origin/master
-
                     <fieldset>
                         <label for="">Teacher:</label>
                         <input id="" name="" type="text" list="Teacher" value= <?php echo "\"$currentTeacher\"" ?>/>
@@ -228,7 +213,6 @@ if ($_SESSION['user']['AccountType']=='Teacher') {
                         </script>
                     </fieldset>
                 </form>
-                </center>
             </div>
             <div class="panel-body">
 

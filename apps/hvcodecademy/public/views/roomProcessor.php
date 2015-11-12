@@ -26,8 +26,3 @@
             return intval($letterNum.$number);
         }
     }
-
-    function roomInput($inputString) {
-        // Process a room input from the website
-        
-    }
