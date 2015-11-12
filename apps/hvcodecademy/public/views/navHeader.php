@@ -1,6 +1,12 @@
 <?php
-if ($_SESSION['user']['AccountType'] == 'Administrator'){
-    $admin = true;
+switch ($_SESSION['user']['AccountType']) {
+    case 'Administrator':
+        $p_admin = true;
+        //break; Fallthrough and set teacher to true
+        // admin has all the other rights
+    case 'Teacher':
+        $p_teacher = true;
+        break;
 }
 ?>
 
@@ -24,9 +30,10 @@ if ($_SESSION['user']['AccountType'] == 'Administrator'){
 			    			<li><a href="index.php">Home</a></li>
                             <li><a href="about.php">About Us</a></li>
                             <li><a href="Map_Schedule.php">Schedule</a></li>
-                            <li><a href="ItemSignUp.php">Cart SignUp</a></li>
-                            <li><a href="RoomSignUp.php">Room SignUp</a></li>
-                            <?php if (admin): ?>
+                            <?php if ($p_teacher): ?>
+                                <li><a href="ItemSignUp.php">Cart SignUp</a></li>
+                                <li><a href="RoomSignUp.php">Room SignUp</a></li>
+                            <?php endif; if ($p_admin): ?>
                                 <li><a href="UserList.php">User List</a></li>
                             <?php endif; ?>
                             <li><a href="edit_account.php">Edit Account</a></li>
