@@ -123,7 +123,7 @@
 											$("1stfloor|| 2ndfloor").hide("buspickup");
 										}
 									});*/
-									
+
 								}
 		  }
 								</script>
@@ -133,16 +133,16 @@
                 <!-- Add PHP Table -->
                 <h1>Schedule</h1>
                 <table class="table table-border">
-		<thead>
-                    <tr>
-                        <th>Room</th>
-                        <th>Username</th>
-            		<th>Item</th>
-            		<th>Email</th>
-                    </tr>
-		</thead>
-		<tbody>
-                    <?php //Iterate Results
+            <thead>
+                <tr>
+                    <th>Room</th>
+                    <th>Username</th>
+                    <th>Item</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php //Iterate Results
                     for ($i=0; $i < $num_results; $i++):
                         //Process Results
                         $row = $stmt->fetch();?>
