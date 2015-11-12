@@ -242,10 +242,10 @@
 
         </div>
     </div>
-    <?php require "bottomBar.php" ?>
-    <!-- CORE JQUERY SCRIPTS -->
-    <script src="assets/js/jquery-1.11.1.js"></script>
-    <!-- BOOTSTRAP SCRIPTS  -->
-    <script src="assets/js/bootstrap.js"></script>
+    	<?php require "bottomBar.php" ?>
+
+
+		<?php require "LinkScript.php" ?>
+
 </body>
 </html>
