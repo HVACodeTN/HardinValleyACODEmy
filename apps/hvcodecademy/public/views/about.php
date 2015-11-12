@@ -1,9 +1,13 @@
-
-<?php require 'Link.php'; ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>About Us</title>
+    <?php require 'Link.php'; ?>
+</head>
 <body>
 
     <?php require 'navHeader.php'; ?>
-	
+
 
     <div class="content-wrapper">
         <div class="container">
@@ -19,7 +23,7 @@
               <br>
               <h2>About the Project</h2>
               <p>
-              To do this, we created a school schedule and map to help schools 
+              To do this, we created a school schedule and map to help schools
               keep track of things around school, such as laptop carts and room assignments.
               </p>
               <br>
@@ -28,16 +32,16 @@
               Our team consists of five people:
               <br>
               </p>
-                
+
                 </div>
               <p><br>
-                
+
           <!--  <div class="container"
             <div class="row row-centered"
             <div class="col-md-2 text-center">
                 <div class="thumbnail"> <img class="img-responsive" src="http://placehold.it/750x450" alt="">
                   <div class="caption">
-                    
+
                       <center><h3> Tym Brandel
                         <br>
                         <small>Team Leader</small> </h3>
@@ -47,16 +51,16 @@
                         <li><a href="#"><i class="fa fa-2x fa-linkedin-square"></i></a> </li>
                         <li><a href="#"><i class="fa fa-2x fa-twitter-square"></i></a> </li>
                       </ul> -->
-                    
+
               <!--      </div>
                   </div>
                   <br>
-                </p> 
+                </p>
               </center>
             <br><br><br>
             </div>
           </div>
-              
+
               <div class="row row-centered">
               <div class="col-sm-2 text-center">
                   <div class="thumbnail"> <img class="img-responsive" src="http://placehold.it/750x450" alt="">
@@ -69,14 +73,14 @@
                         <li><a href="#"><i class="fa fa-2x fa-facebook-square"></i></a> </li>
                         <li><a href="#"><i class="fa fa-2x fa-linkedin-square"></i></a> </li>
                         <li><a href="#"><i class="fa fa-2x fa-twitter-square"></i></a> </li>
-                      </ul> 
+                      </ul>
                       </div>
                     </div>
                   <br>
                   </p>
                 <br><br><br>
                 </div>
-                
+
                 <div class="col-sm-2 text-center">
                     <div class="thumbnail"> <img class="img-responsive" src="http://placehold.it/750x450" alt="">
                       <div class="caption">
@@ -88,15 +92,15 @@
                           <li><a href="#"><i class="fa fa-2x fa-facebook-square"></i></a> </li>
                           <li><a href="#"><i class="fa fa-2x fa-linkedin-square"></i></a> </li>
                           <li><a href="#"><i class="fa fa-2x fa-twitter-square"></i></a> </li>
-                        </ul> 
+                        </ul>
                         </div>
                       </div>
                     <br>
-                 	  </p> 
+                 	  </p>
                   <br><br><br>
                   </div>
                 </div>
-                  
+
                   <div class="row row-centered">
                   <div class="col-sm-2 text-center">
                       <div class="thumbnail"> <img class="img-responsive" src="http://placehold.it/750x450" alt="">
@@ -113,10 +117,10 @@
             <!--              </div>
                         </div>
                       <br>
-                   	  </p> 
+                   	  </p>
                     <br><br><br>
                     </div>
-                    
+
                     <div class="col-sm-2 text-center">
                         <div class="thumbnail"> <img class="img-responsive" src="http://placehold.it/750x450" alt="">
                           <div class="caption">
@@ -128,7 +132,7 @@
                               <li><a href="#"><i class="fa fa-2x fa-facebook-square"></i></a> </li>
                               <li><a href="#"><i class="fa fa-2x fa-linkedin-square"></i></a> </li>
                               <li><a href="#"><i class="fa fa-2x fa-twitter-square"></i></a> </li>
-                            </ul> 
+                            </ul>
                             </div>
                           </div>
                         <br>
@@ -137,10 +141,10 @@
                       </div>
                     </div>
                   </div>
-              
+
               </center>
             </div> -->
-            
+
             <div class="container">
               <div class="row row-centered">
                 <div class="col-xs-12 col-centered">
@@ -155,7 +159,7 @@
                         </div>
                             </div>
                             <br>
-                          </p> </center> 
+                          </p> </center>
                       <br><br><br>
                 </div>
               <div class="row row-centered">
@@ -170,7 +174,7 @@
                         </div>
                             </div>
                             <br>
-                          </p> </center> 
+                          </p> </center>
                       <br><br><br>
                 </div>
                 <div class="col-xs-6 col-centered">
@@ -184,7 +188,7 @@
                         </div>
                             </div>
                             <br>
-                          </p> </center> 
+                          </p> </center>
                       <br><br><br>
                 </div>
               </div>
@@ -200,7 +204,7 @@
                         </div>
                             </div>
                             <br>
-                          </p> </center> 
+                          </p> </center>
                       <br><br><br>
                 </div>
                 <div class="col-xs-6 col-centered">
@@ -214,7 +218,7 @@
                         </div>
                             </div>
                             <br>
-                          </p> </center> 
+                          </p> </center>
                       <br><br><br>
                     </div>
                 </div>
@@ -225,13 +229,13 @@
                       <li><a href="https://www.facebook.com/"><i class="fa fa-2x fa-facebook-square"></i></a> </li>
                       <li><a href="https://www.linkedin.com/"><i class="fa fa-2x fa-linkedin-square"></i></a> </li>
                       <li><a href="https://twitter.com/"><i class="fa fa-2x fa-twitter-square"></i></a> </li>
-                    </ul> 
+                    </ul>
                   </center>
                 </div>
               </div>
               </div>
             </div>
-            
+
             <div class="panel-body">
             </div>
             <?php require "social.php" ?>

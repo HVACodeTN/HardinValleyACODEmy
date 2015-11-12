@@ -62,39 +62,12 @@ if ($_SESSION['user']['AccountType']=='Teacher') {
     $currentTeacher = $_SESSION['user']['UserName'];
 }
 ?>
-<<<<<<< HEAD
-
-<?php require 'Link.php'; ?>
-
-=======
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <!--[if IE]>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <![endif]-->
-    <title>Access Item Signup</title>
-    <!-- BOOTSTRAP CORE STYLE  -->
-    <link href="assets/css/bootstrap.css" rel="stylesheet" />
-    <!-- FONT AWESOME ICONS  -->
-    <link href="assets/css/font-awesome.css" rel="stylesheet" />
-    <!-- CUSTOM STYLE  -->
-    <link href="assets/css/style.css" rel="stylesheet" />
-    <!-- DATA SELECTOR BOOTSTRAPS -->
-    <!-- <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" media="screen" href="http://tarruda.github.com/bootstrap-datetimepicker/assets/css/bootstrap-datetimepicker.min.css"> -->
-    <!-- HTML5 Shiv and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <title>Room SignUp</title>
+    <?php require 'Link.php'; ?>
 </head>
->>>>>>> origin/master
 <body>
 
     <?php require 'navHeader.php'; ?>
@@ -142,23 +115,23 @@ if ($_SESSION['user']['AccountType']=='Teacher') {
                     <br>
                     <fieldset>
                         <label for="">Period:</label>
-                        <select id="" name="period" type="text" list="Period" />
+                        <select id="" class="dropdown" name="period" type="text" list="Period" />
                         <!-- <datalist id="Period" placeholder="Period"> -->
                             <option value="0">7am Class</option>
                             <option value="1">First Period</option>
                             <option value="2">Second Period</option>
                             <option value="3">Third Period</option>
-                            <option value="4">Forth Period</option>
+                            <option value="4">Fourth Period</option>
                         </select>
                     </fieldset>
                     <br />
                     <fieldset>
                     	<label for="">Date:</label>
                     	<div id="datetimepicker" class="input-append date">
-  							<input type="date" name="date"></input>
-  								<!-- <span class="add-on">
+							<input type="date" name="date"></input>
+								<!-- <span class="add-on">
     								<i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
-  								</span> -->
+								</span> -->
 						</div>
 					<!-- <script type="text/javascript"
                         src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js">
