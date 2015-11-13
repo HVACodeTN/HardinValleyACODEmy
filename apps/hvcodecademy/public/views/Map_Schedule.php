@@ -110,31 +110,33 @@ catch(PDOException $ex)
         </script>
     </div>
     <div class="aside-right" style="position: absolute; border: thin; border-color: black; left: 1080px; height: 656px;" >
-        <input type="radio" name="ch" value="1stfloor" checked="checked" onclick="ChangeBackground(this.value);">1st Floor</input>
-        <br />
-        <br />
-        <input type="radio" name="ch" value="2ndfloor" onclick="ChangeBackground(this.value);" />2nd Floor</input>
-        <br />
-        <br />
-        <input type="radio" name="ch" value="buspickup" onclick="ChangeBackground(this.value);" style="position: relative; left:0px;">Section A and Bus Duty</input>
-        <br />
-        <br />
-    	<form action="Map_Schedule.php" method="POST">
-    		<fieldset>
-                        <label for="">Period:</label>
-                        <select id="" name="period" type="text" list="Period" />
-                        <option value="0" label="7AM">
-                        <option value="1" label="First Period">
-                        <option value="2" label="Second Period">
-                        <option value="3" label="Third Period">
-                        <option value="4" label="Forth Period">
-                        </select>
-                    </fieldset>
-    	</form>
-    </div>
-    </div>
 
-	<div class="info-table" style="padding-top: 1000px">
+    </div>
+    </div>
+<div class="inputs" style="padding-top: 1000px">
+    <input type="radio" name="ch" value="1stfloor" checked="checked" onclick="ChangeBackground(this.value);">1st Floor</input>
+    <br />
+    <br />
+    <input type="radio" name="ch" value="2ndfloor" onclick="ChangeBackground(this.value);" />2nd Floor</input>
+    <br />
+    <br />
+    <input type="radio" name="ch" value="buspickup" onclick="ChangeBackground(this.value);" style="position: relative; left:0px;">Section A and Bus Duty</input>
+    <br />
+    <br />
+    <form action="Map_Schedule.php" method="POST">
+        <fieldset>
+                    <label for="">Period:</label>
+                    <select id="" name="period" type="text" list="Period" onchange="this.form.submit()" />
+                    <option value="0" label="7AM">
+                    <option value="1" label="First Period">
+                    <option value="2" label="Second Period">
+                    <option value="3" label="Third Period">
+                    <option value="4" label="Fourth Period">
+                    </select>
+                </fieldset>
+    </form>
+</div>
+	<div class="info-table" style="padding-top: 100px">
         <!-- Add PHP Table -->
             <table class="table table-border">
                 <h1>Schedule</h1>
@@ -143,7 +145,6 @@ catch(PDOException $ex)
                         <th>Room</th>
                         <th>Username</th>
                         <th>Item</th>
-                        <th>Email</th>
                     </tr>
                 </thead>
                 <tbody>
