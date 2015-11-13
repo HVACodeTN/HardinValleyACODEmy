@@ -123,7 +123,7 @@ if(!empty($_POST))
     if (!$room) {
         $insertFailMsg = "Could not find Room".htmlentities($room, ENT_QUOTES, 'UTF-8');
     } else if (!$UserID) {
-        $insertFailMsg = "Could not find UsernName";
+        $insertFailMsg = "Could not find UserName";
     } else {
         // Execute the query to create the user
         try
@@ -222,31 +222,10 @@ if ($_SESSION['user']['AccountType']=='Teacher') {
                     </fieldset>
                     <br />
                     <fieldset>
-                    	<label for="">Date:</label>
-                    	<div id="datetimepicker" class="input-append date">
-							<input type="date" name="date" value="<?php echo Date("Y-m-d")?>"></input>
-								<!-- <span class="add-on">
-    								<i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
-								</span> -->
-						</div>
-					<!-- <script type="text/javascript"
-                        src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js">
-                    </script>
-                    <script type="text/javascript"
-                        src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js">
-                    </script>
-                    <script type="text/javascript"
-                        src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js">
-                    </script>
-                    <script type="text/javascript"
-                        src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.pt-BR.js">
-                    </script>
-                    <script type="text/javascript">
-                      $('#datetimepicker').datetimepicker({
-                        format: 'dd/MM/yyyy hh:mm:ss',
-                        language: 'pt-BR'
-                      });
-                    </script> -->
+                        <label for="">Date:</label>
+                        <div id="datetimepicker" class="input-append date">
+                            <input type="date" name="date" value="<?php echo Date("Y-m-d")?>"></input>
+                        </div>
                     </fieldset>
                     <br />
                     <!-- Button used for Submitting to server side code -->
