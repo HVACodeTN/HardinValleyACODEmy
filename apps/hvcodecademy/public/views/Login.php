@@ -48,7 +48,7 @@
         catch(PDOException $ex)
         {
             //display if failed to run
-            die("Failed to run query: " . $ex->getMessage());
+            $insertFailMsg = "Failed to run query";;
         }
 
         $getUserId = $stmt->fetch();
@@ -67,7 +67,7 @@
             catch(PDOException $ex)
             {
                 //display if failed to run
-                die("Failed to run query2: " . $ex->getMessage());
+                $insertFailMsg = "Failed to run query2";;
             }
 
 
@@ -140,6 +140,11 @@
 </head>
 <body>
     <img src="\views\assets\img\Header.jpg" alt="LOGO" style="width:100%;height:10%"/>
+
+    <?php endif; if ($insertFailMsg): ?>
+        <h4><?php echo $insertFailMsg ?></h4>
+        <br />
+    <?php endif; ?>
 
     <div class="content-wrapper">
         <div class="container">
