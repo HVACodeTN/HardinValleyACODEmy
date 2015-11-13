@@ -119,9 +119,7 @@
         }
         else
         {
-            // Tell the user they failed
-            print("Login Failed.");
-
+            $insertFailMsg = "Login Failed.";
             // Show them their username again so all they have to do is enter a new
             // password.  The use of htmlentities prevents XSS attacks.  You should
             // always use htmlentities on user submitted values before displaying them
@@ -140,11 +138,6 @@
 </head>
 <body>
     <img src="\views\assets\img\Header.jpg" alt="LOGO" style="width:100%;height:10%"/>
-
-    <?php if ($insertFailMsg): ?>
-        <h4><?php echo $insertFailMsg ?></h4>
-        <br />
-    <?php endif; ?>
 
     <div class="content-wrapper">
         <div class="container">
@@ -166,7 +159,11 @@
                                 <br>
                                 <input type="password" name="password" id="passwordInput" value="">
                             </p>
-							<h2><!-- login fail needs to echo here --></h2>
+
+                            <?php if ($insertFailMsg): ?>
+                                <h3><?php echo $insertFailMsg ?></h3>
+                                <br />
+                            <?php endif; ?>
                             <!-- Select if used for more then one school -->
                             <!-- note we made fake school names -->
                             <!--

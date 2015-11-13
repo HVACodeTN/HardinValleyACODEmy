@@ -140,73 +140,43 @@ catch(PDOException $ex)
                 </fieldset>
 	</form>
     </div>
-    <!-- Add PHP Table -->
-    <table class="table table-border fixed-bottom" style="position:relative; bottom:-300px;">
-        <h1>Schedule</h1>
-        <thead>
-            <tr>
-                <th>Room</th>
-                <th>Username</th>
-                <th>Item</th>
-                <th>Email</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php //Iterate Results in UPstairs
-            for ($i=0; $i < $num_results; $i++):
-                //Process Results
-                $row = $stmt->fetch();?>
-                <tr>
-                    <td><?php
-                    if ($row['RoomName']) {
-                        echo htmlentities($row['RoomName'], ENT_QUOTES, 'UTF-8');
-                    } else {
-                        echo roomString($row['Room']);
-                    }
-                    ?></td>
-                    <td><?php echo htmlentities($row['UserName'], ENT_QUOTES, 'UTF-8'); ?></td>
-                    <td><?php echo htmlentities($row['CartName'], ENT_QUOTES, 'UTF-8'); ?></td>
-                </tr>
-            <?php endfor; ?>
-        </tbody>
-    </table>
-    <!-- End PHP Table -->
     </div>
     </div>
 
 	<div class="info-table">
-<!-- Add PHP Table -->
-    <table class="table table-border fixed-bottom" style="padding-top: 900px">
-        <h1>Schedule</h1>
-        <thead>
-            <tr>
-                <th>Room</th>
-                <th>Username</th>
-                <th>Item</th>
-                <th>Email</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php //Iterate Results
-            for ($i=0; $i < $num_results; $i++):
-                //Process Results
-                $row = $stmt->fetch();?>
-                <tr>
-                    <td><?php
-                    if ($row['RoomName']) {
-                        echo htmlentities($row['RoomName'], ENT_QUOTES, 'UTF-8');
-                    } else {
-                        echo roomString($row['Room']);
-                    }
-                    ?></td>
-                    <td><?php echo htmlentities($row['UserName'], ENT_QUOTES, 'UTF-8'); ?></td>
-                    <td><?php echo htmlentities($row['CartName'], ENT_QUOTES, 'UTF-8'); ?></td>
-                </tr>
-            <?php endfor; ?>
-        </tbody>
-    </table>
-    <!-- End PHP Table -->
-
+        <!-- Add PHP Table -->
+            <table class="table table-border fixed-bottom" style="padding-top: 900px">
+                <h1>Schedule</h1>
+                <thead>
+                    <tr>
+                        <th>Room</th>
+                        <th>Username</th>
+                        <th>Item</th>
+                        <th>Email</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php //Iterate Results
+                    echo "num_resultsUP:$num_resultsUP";
+                    for ($i=0; $i < $num_resultsUP; $i++):
+                        //Process Results
+                        $row = $stmtUP->fetch();?>
+                        <tr>
+                            <td><?php
+                            if ($row['RoomName']) {
+                                echo htmlentities($row['RoomName'], ENT_QUOTES, 'UTF-8');
+                            } else {
+                                echo roomString($row['Room']);
+                            }
+                            ?></td>
+                            <td><?php echo htmlentities($row['UserName'], ENT_QUOTES, 'UTF-8'); ?></td>
+                            <td><?php echo htmlentities($row['CartName'], ENT_QUOTES, 'UTF-8'); ?></td>
+                        </tr>
+                    <?php endfor; ?>
+                </tbody>
+            </table>
+            <!-- End PHP Table -->
+        </div>
     <?php require "social.php" ?>
 
     <!-- CONTENT-WRAPPER SECTION END-->
