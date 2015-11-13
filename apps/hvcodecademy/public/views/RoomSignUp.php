@@ -210,7 +210,7 @@ if ($_SESSION['user']['AccountType']=='Teacher') {
                     <fieldset>
                         <label for="">Period:</label>
                         <input id="" class="dropdown" name="period" type="text" list="Period" />
-                        <datalist id="Period" placeholder="Period">
+                        <datalist id="Period" placeholder="Period" class="dropdown">
                             <option value="0">7am Class</option>
                             <option value="1">First Period</option>
                             <option value="2">Second Period</option>
@@ -256,14 +256,12 @@ if ($_SESSION['user']['AccountType']=='Teacher') {
             <div class="panel-body">
             </div>
             <?php require "social.php" ?>
-        </div>
-    </div>
-    <!-- CONTENT-WRAPPER SECTION END-->
-    <?php require "bottomBar.php" ?>
-    <!-- JAVASCRIPT AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
-    <!-- CORE JQUERY SCRIPTS -->
-    <script src="assets/js/jquery-1.11.1.js"></script>
-    <!-- BOOTSTRAP SCRIPTS  -->
-    <script src="assets/js/bootstrap.js"></script>
+            
+      </div>
+    	<?php require "bottomBar.php" ?>
+
+
+		<?php require "LinkScript.php" ?>
+
 </body>
 </html>

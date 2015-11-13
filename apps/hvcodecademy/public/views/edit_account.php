@@ -103,17 +103,15 @@
             </div>
             <div class="panel-body">
 
-            </div>
+         </div>
             <?php require "social.php" ?>
 
             <!-- CONTENT-WRAPPER SECTION END-->
-            <?php require "bottomBar.php" ?>
-        </div>
-    </div>
-    <!-- JAVASCRIPT AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
-    <!-- CORE JQUERY SCRIPTS -->
-    <script src="assets/js/jquery-1.11.1.js"></script>
-    <!-- BOOTSTRAP SCRIPTS  -->
-    <script src="assets/js/bootstrap.js"></script>
+       </div>
+    	<?php require "bottomBar.php" ?>
+
+
+		<?php require "LinkScript.php" ?>
+
 </body>
 </html>

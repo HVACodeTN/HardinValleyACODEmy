@@ -33,6 +33,7 @@ switch ($_SESSION['user']['AccountType']) {
                             <?php if ($p_teacher): ?>
                                 <li><a href="ItemSignUp.php">Cart SignUp</a></li>
                                 <li><a href="RoomSignUp.php">Room SignUp</a></li>
+                                <li><a href="workorder.php">Work Order</a></li>
                             <?php endif; if ($p_admin): ?>
                                 <li><a href="UserList.php">User List</a></li>
                             <?php endif; ?>

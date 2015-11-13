@@ -64,7 +64,7 @@ if ($_SESSION['user']['AccountType']=='Teacher') {
 
     <div class="content-wrapper">
         <div class="container">
-            <div class="main" align="center">
+            <div class="main">
             <!--Code for if select is wanted over datalist
             <form action="cartsignup.php" method="POST">
                 <fieldset>
@@ -106,8 +106,9 @@ if ($_SESSION['user']['AccountType']=='Teacher') {
                 </fieldset>
             </form> -->
                 <form action="ItemSignUp.php" method="POST">
-                    <fieldset>
+                    <fieldset style=" align-content:center;">
                         <label for="">Teacher:</label>
+                        <br />
                         <input id="" name="" type="text" list="Teacher" value= <?php echo "\"$currentTeacher\"" ?>/>
                         <datalist id="Teacher" placeholder="Teacher" class="dropdown">
                             <!--Teachers-->
@@ -124,7 +125,8 @@ if ($_SESSION['user']['AccountType']=='Teacher') {
                     </fieldset>
                     </br>
                     <fieldset>
-                        <label for="">   Room:</label>
+                        <label for="">Room:</label>
+                        <br />
                         <input id="" name="" type="text" list="Room"/>
                         <datalist id="Room" placeholder="Room" class="dropdown">
                         <?php foreach ($rooms as $key => $row) {
@@ -142,6 +144,7 @@ if ($_SESSION['user']['AccountType']=='Teacher') {
                     </br>
                     <fieldset>
                         <label for="">Period:</label>
+                        <br />
                         <input id="" name="" type="text" list="Period" />
                         <datalist id="Period" placeholder="Period">
                             <option value="First Period">
@@ -153,6 +156,7 @@ if ($_SESSION['user']['AccountType']=='Teacher') {
                     </br>
                     <fieldset>
                 	       <label for="">Item:</label>
+                           <br />
                            <input id="" name="select item" type="text" list="SignOutItems" />
                                 <datalist id="SignOutItems" placeholder="select">
                                     <option value="A Cart" label="15 Labtops">
@@ -187,6 +191,7 @@ if ($_SESSION['user']['AccountType']=='Teacher') {
                    </fieldset>
                    <fieldset>
                 		<label for="">Date:</label>
+                        <br />
                         	<div id="datetimepicker" class="input-append date">
     							<input type="text"></input>
     								<span class="add-on">
@@ -219,14 +224,15 @@ if ($_SESSION['user']['AccountType']=='Teacher') {
             </div>
             <?php require "social.php" ?>
 
-        </div>
-    </div>
-    <!-- CONTENT-WRAPPER SECTION END-->
-    <?php require "bottomBar.php" ?>
-    <!-- JAVASCRIPT AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
-    <!-- CORE JQUERY SCRIPTS -->
-    <script src="assets/js/jquery-1.11.1.js"></script>
-    <!-- BOOTSTRAP SCRIPTS  -->
-    <script src="assets/js/bootstrap.js"></script>
+      </div>
+            <?php require "social.php" ?>
+
+            <!-- CONTENT-WRAPPER SECTION END-->
+       </div>
+    	<?php require "bottomBar.php" ?>
+
+
+		<?php require "LinkScript.php" ?>
+
 </body>
 </html>

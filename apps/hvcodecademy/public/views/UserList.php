@@ -59,18 +59,23 @@ $rows = $stmt->fetchAll();
                 <!-- Add PHP Table -->
                 <h1>User List</h1>
                 <table>
-                    <tr>
-                        <th>ID</th>
-                        <th>Username</th>
-                        <th>Account Type</th>
-                    </tr>
-                    <?php foreach($rows as $row): ?>
+                	<thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Username</th>
+                            <th>Account Type</th>
+                            <th>Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    	<?php foreach($rows as $row): ?>
                         <tr>
                             <td><?php echo $row['UserID']; ?></td> <!-- htmlentities is not needed here because $row['id'] is always an integer -->
                             <td><?php echo htmlentities($row['UserName'], ENT_QUOTES, 'UTF-8'); ?></td>
                             <td><?php echo htmlentities($row['AccountType'], ENT_QUOTES, 'UTF-8'); ?></td>
                         </tr>
                     <?php endforeach; ?>
+                    </tbody>
                 </table>
                 <!-- End PHP Table -->
             </div>
@@ -79,13 +84,14 @@ $rows = $stmt->fetchAll();
             </div>
             <?php require "social.php" ?>
         </div>
-    </div>
-    <!-- CONTENT-WRAPPER SECTION END-->
-    <?php require "bottomBar.php" ?>
-    <!-- JAVASCRIPT AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
-    <!-- CORE JQUERY SCRIPTS -->
-    <script src="assets/js/jquery-1.11.1.js"></script>
-    <!-- BOOTSTRAP SCRIPTS  -->
-    <script src="assets/js/bootstrap.js"></script>
+      </div>
+            <?php require "social.php" ?>
+
+            <!-- CONTENT-WRAPPER SECTION END-->
+       </div>
+    	<?php require "bottomBar.php" ?>
+
+		<?php require "LinkScript.php" ?>
+
 </body>
 </html>

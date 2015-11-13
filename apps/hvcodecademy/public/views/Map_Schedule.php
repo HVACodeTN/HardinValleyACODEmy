@@ -86,16 +86,8 @@
         <div class="container" >
 
             <div class="main">
-                <input type="radio" name="ch" value="1stfloor" checked="checked" onclick="ChangeBackground(this.value);">1st Floor</input>
-                <br />
-                <br />
-                <input type="radio" name="ch" value="2ndfloor" onclick="ChangeBackground(this.value);" />2nd Floor</input>
-                <br />
-                <br />
-                <input type="radio" name="ch" value="buspickup" onclick="ChangeBackground(this.value);" style="position: relative; left:0px;">Section A and Bus Duty</input>
-                <br />
-                <br />
-                <script type="text/javascript">
+                
+              <script type="text/javascript">
 		  function ChangeBackground(bg){
 		  	var url;
 			var Asection;
@@ -128,7 +120,16 @@
 		  }
 								</script>
             </div>
-            <div class="panel-body">
+            <div class="aside-right" style="position: absolute; border: thin; border-color: black; left: 996px; height: 656px;" >
+				<input type="radio" name="ch" value="1stfloor" checked="checked" onclick="ChangeBackground(this.value);">1st Floor</input>
+                <br />
+                <br />
+                <input type="radio" name="ch" value="2ndfloor" onclick="ChangeBackground(this.value);" />2nd Floor</input>
+                <br />
+                <br />
+                <input type="radio" name="ch" value="buspickup" onclick="ChangeBackground(this.value);" style="position: relative; left:0px;">					                 Section A and Bus Duty</input>
+                <br />
+                <br />
 
                 <!-- Add PHP Table -->
                 <h1>Schedule</h1>
@@ -137,8 +138,8 @@
                     <tr>
                         <th>Room</th>
                         <th>Username</th>
-            		<th>Item</th>
-            		<th>Email</th>
+            			<th>Item</th>
+            			<th>Email</th>
                     </tr>
 		</thead>
 		<tbody>
@@ -161,12 +162,15 @@
                 <!-- End PHP Table -->
             </div>
         </div>
-    </div>
-    <!-- FOOTER SECTION END-->
-    <!-- JAVASCRIPT AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
-    <!-- CORE JQUERY SCRIPTS -->
-    <script src="assets/js/jquery-1.11.1.js"></script>
-    <!-- BOOTSTRAP SCRIPTS  -->
-    <script src="assets/js/bootstrap.js"></script>
+     </div>
+            <?php require "social.php" ?>
+
+            <!-- CONTENT-WRAPPER SECTION END-->
+       </div>
+    	<?php require "bottomBar.php" ?>
+
+
+		<?php require "LinkScript.php" ?>
+
 </body>
 </html>

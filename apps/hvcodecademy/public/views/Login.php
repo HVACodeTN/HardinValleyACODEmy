@@ -161,7 +161,7 @@
                                 <br>
                                 <input type="password" name="password" id="passwordInput" value="">
                             </p>
-
+							<h2><!-- login fail needs to echo here --></h2>
                             <!-- Select if used for more then one school -->
                             <!-- note we made fake school names -->
                             <!--
@@ -190,13 +190,11 @@
             <?php require "social.php" ?>
 
             <!-- CONTENT-WRAPPER SECTION END-->
-            <?php require "bottomBar.php" ?>
-        </div>
-    </div>
-    <!-- JAVASCRIPT AT THE BOTTOM TO REDUCE THE LOADING TIME  -->
-    <!-- CORE JQUERY SCRIPTS -->
-    <script src="assets/js/jquery-1.11.1.js"></script>
-    <!-- BOOTSTRAP SCRIPTS  -->
-    <script src="assets/js/bootstrap.js"></script>
+       </div>
+    	<?php require "bottomBar.php" ?>
+
+
+		<?php require "LinkScript.php" ?>
+
 </body>
 </html>

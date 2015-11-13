@@ -142,8 +142,6 @@
                     </div>
                   </div>
 
-              </center>
-            </div> -->
 
             <div class="container">
               <div class="row row-centered">
@@ -153,8 +151,7 @@
                         <h3> Tym Brandel
                           <br>
                           <small>Team Leader</small> </h3>
-                          <p>Tym primarily spent his time working on HTML code when
-                             he was not guiding the team as a whole.
+                          <p>Head HTML Programmer,Head Designer, and Social Media.
                           </p>
                         </div>
                             </div>
@@ -168,8 +165,8 @@
                     <div class="caption">
                         <h3> Jackson Smith
                           <br>
-                          <small>PHP Extraordinaire</small> </h3>
-                          <p>Jackson was the master of the PHP arts, filling out the databases in style.
+                          <small>Head of Database</small> </h3>
+                          <p>Designed database and wrote most of the PHP for the web application.
                           </p>
                         </div>
                             </div>
@@ -182,8 +179,8 @@
                     <div class="caption">
                         <h3> Sean Toll
                           <br>
-                          <small>CSS Connoisseur.</small> </h3>
-                          <p>Sean made the websites presentable in a time when they looked bland.
+                          <small>Bootstrap</small> </h3>
+                          <p>Learned to use bootstrap and worked with Tym.
                           </p>
                         </div>
                             </div>
@@ -198,8 +195,8 @@
                     <div class="caption">
                         <h3> Joey Townsend
                           <br>
-                          <small>Database Delinquent</small> </h3>
-                          <p>Joey assisted Jackson in his PHP objectives.
+                          <small>Database</small> </h3>
+                          <p>Learning basic PHP from this, Joey assisted Jackson in his PHP objectives.
                           </p>
                         </div>
                             </div>
@@ -213,7 +210,7 @@
                         <h3> Jack Anderson
                           <br>
                           <small>HTML Editor</small> </h3>
-                          <p>Jack was there, too.
+                          <p>Learned basic HTML to help the team.
                           </p>
                         </div>
                             </div>
@@ -222,17 +219,6 @@
                       <br><br><br>
                     </div>
                 </div>
-                <div class="row row-centered">
-                <div class="col-xs-12 col-centered">
-                  <center>
-                    <ul class="list-inline">
-                      <li><a href="https://www.facebook.com/"><i class="fa fa-2x fa-facebook-square"></i></a> </li>
-                      <li><a href="https://www.linkedin.com/"><i class="fa fa-2x fa-linkedin-square"></i></a> </li>
-                      <li><a href="https://twitter.com/"><i class="fa fa-2x fa-twitter-square"></i></a> </li>
-                    </ul>
-                  </center>
-                </div>
-              </div>
               </div>
             </div>
 
@@ -242,10 +228,10 @@
 
         </div>
     </div>
-    <?php require "bottomBar.php" ?>
-    <!-- CORE JQUERY SCRIPTS -->
-    <script src="assets/js/jquery-1.11.1.js"></script>
-    <!-- BOOTSTRAP SCRIPTS  -->
-    <script src="assets/js/bootstrap.js"></script>
+    	<?php require "bottomBar.php" ?>
+
+
+		<?php require "LinkScript.php" ?>
+
 </body>
 </html>
