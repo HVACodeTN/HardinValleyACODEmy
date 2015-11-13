@@ -119,7 +119,7 @@ switch ($Location) {
         }
         </script>
     </div>
-    <div class="aside-right" style="position: absolute; border: thin; border-color: black; left: 996px; height: 656px;" >
+    <div class="aside-right" style="position: absolute; border: thin; border-color: black; left: 1080px; height: 656px;" >
         <input type="radio" name="ch" value="1stfloor" checked="checked" onclick="ChangeBackground(this.value);">1st Floor</input>
         <br />
         <br />
@@ -130,38 +130,38 @@ switch ($Location) {
         <br />
         <br />
 
-        <!-- Add PHP Table -->
-        <h1>Schedule</h1>
-        <table class="table table-border">
-            <thead>
-                <tr>
-                    <th>Room</th>
-                    <th>Username</th>
-                    <th>Item</th>
-                    <th>Email</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php //Iterate Results
-                for ($i=0; $i < $num_results; $i++):
-                    //Process Results
-                    $row = $stmt->fetch();?>
-                    <tr>
-                        <td><?php
-                        if ($row['RoomName']) {
-                            echo htmlentities($row['RoomName'], ENT_QUOTES, 'UTF-8');
-                        } else {
-                            echo roomString($row['Room']);
-                        }
-                        ?></td>
-                        <td><?php echo htmlentities($row['UserName'], ENT_QUOTES, 'UTF-8'); ?></td>
-                        <td><?php echo htmlentities($row['CartName'], ENT_QUOTES, 'UTF-8'); ?></td>
-                    </tr>
-                <?php endfor; ?>
-            </tbody>
-        </table>
-        <!-- End PHP Table -->
     </div>
+    <!-- Add PHP Table -->
+    <table class="table table-border fixed-bottom" style="padding-top: 900px">
+        <h1>Schedule</h1>
+        <thead>
+            <tr>
+                <th>Room</th>
+                <th>Username</th>
+                <th>Item</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php //Iterate Results
+            for ($i=0; $i < $num_results; $i++):
+                //Process Results
+                $row = $stmt->fetch();?>
+                <tr>
+                    <td><?php
+                    if ($row['RoomName']) {
+                        echo htmlentities($row['RoomName'], ENT_QUOTES, 'UTF-8');
+                    } else {
+                        echo roomString($row['Room']);
+                    }
+                    ?></td>
+                    <td><?php echo htmlentities($row['UserName'], ENT_QUOTES, 'UTF-8'); ?></td>
+                    <td><?php echo htmlentities($row['CartName'], ENT_QUOTES, 'UTF-8'); ?></td>
+                </tr>
+            <?php endfor; ?>
+        </tbody>
+    </table>
+    <!-- End PHP Table -->
     </div>
     </div>
     <?php require "social.php" ?>
