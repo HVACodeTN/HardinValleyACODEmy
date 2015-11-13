@@ -18,7 +18,7 @@ LEFT JOIN Users ON Schedule.UserID = Users.UserID
 LEFT JOIN Rooms ON Schedule.Room = Rooms.RoomNumber
 LEFT JOIN CartCheckout ON Schedule.UserID = CartCheckout.UserID AND Schedule.Period = CartCheckout.Period AND Schedule.Room = CartCheckout.Room AND CartCheckout.Date = CURDATE()
 LEFT JOIN Carts ON CartCheckout.CartID = Carts.CartID
-WHERE Schedule.Period = 1 AND Schedule.Room LIKE :Pattern
+WHERE Schedule.Period = :Period AND Schedule.Room LIKE :Pattern
 ORDER BY Schedule.Room ASC"
 ;
 
@@ -40,15 +40,15 @@ try
 {
     // Execute the query against the database
     $stmtDOWN = $db->prepare($query);
-    $result = $stmtDOWN->execute($query_params);
+    $result = $stmtDOWN->execute($query_params_DOWN);
     $num_resultsDOWN = $stmtDOWN->rowCount();
 
     $stmtUP = $db->prepare($query);
-    $result = $stmtUP->execute($query_params);
+    $result = $stmtUP->execute($query_params_UP);
     $num_resultsUP = $stmtUP->rowCount();
 
     $stmtA = $db->prepare($query);
-    $result = $stmtA->execute($query_params);
+    $result = $stmtA->execute($query_params_A);
     $num_resultsA = $stmtA->rowCount();
 }
 catch(PDOException $ex)
@@ -57,24 +57,6 @@ catch(PDOException $ex)
     die("Failed to run query: " . $ex->getMessage());
 }
 
-//Radio Buttons:
-// Down:B/C/D/E/F
-// UP F/E/D
-// Bus: A/Bus
-switch ($Location) {
-    case 'Down':
-    # code...
-    break;
-    case 'UP':
-    # code...
-    break;
-    case 'Bus':
-    # code...
-    break;
-    default:
-    # code...
-    break;
-}
 // Iterate Results
 // for ($i=0; $i < $num_results; $i++) {
 //     //Process Results
@@ -161,7 +143,7 @@ switch ($Location) {
             </tr>
         </thead>
         <tbody>
-            <?php //Iterate Results
+            <?php //Iterate Results in UPstairs
             for ($i=0; $i < $num_results; $i++):
                 //Process Results
                 $row = $stmt->fetch();?>
