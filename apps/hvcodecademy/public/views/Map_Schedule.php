@@ -12,17 +12,14 @@ require("roomProcessor.php");
 $period = 2;
 
 //Create Query
-$query = "SELECT
-    Schedule.Room,
-    Users.UserName,
-    Rooms.RoomName,
-    CartCheckout.
-    FROM Schedule,Users,Rooms,CartCheckout
-    WHERE
-    Schedule.Period = :Period AND
-    Users.UserID = Schedule.UserID AND
-    Rooms.RoomNumber = Schedule.Room
-";
+$query = "SELECT Schedule.Room, Rooms.RoomName, Users.UserName, Carts.CartName
+FROM `Schedule`
+LEFT JOIN Users ON Schedule.UserID = Users.UserID
+LEFT JOIN Rooms ON Schedule.Room = Rooms.RoomNumber
+LEFT JOIN CartCheckout ON Schedule.UserID = CartCheckout.UserID AND Schedule.Period = CartCheckout.Period AND Schedule.Room = CartCheckout.Room AND CartCheckout.Date = CURDATE()
+LEFT JOIN Carts ON CartCheckout.CartID = Carts.CartID
+WHERE Schedule.Period = :Period";
+
 $query_params = array(
     ':Period' => $period
 );
@@ -213,8 +210,10 @@ switch ($Location) {
                                     echo htmlentities($row['RoomName'], ENT_QUOTES, 'UTF-8');
                                 } else {
                                     echo roomString($row['Room']);
-                                } ?></td>
+                                }
+                                ?></td>
                                 <td><?php echo htmlentities($row['UserName'], ENT_QUOTES, 'UTF-8'); ?></td>
+                                <td><?php echo htmlentities($row['CartName'], ENT_QUOTES, 'UTF-8'); ?></td>
                             </tr>
                         <?php endfor; ?>
                     </tbody>
