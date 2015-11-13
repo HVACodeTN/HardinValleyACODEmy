@@ -150,7 +150,7 @@ switch ($Location) {
 
     </div>
     <!-- Add PHP Table -->
-    <table class="table table-border fixed-bottom" style="padding-top: 900px">
+    <table class="table table-border fixed-bottom" style="position:relative; bottom:-300px;">
         <h1>Schedule</h1>
         <thead>
             <tr>
