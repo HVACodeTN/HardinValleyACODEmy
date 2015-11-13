@@ -18,20 +18,38 @@ LEFT JOIN Users ON Schedule.UserID = Users.UserID
 LEFT JOIN Rooms ON Schedule.Room = Rooms.RoomNumber
 LEFT JOIN CartCheckout ON Schedule.UserID = CartCheckout.UserID AND Schedule.Period = CartCheckout.Period AND Schedule.Room = CartCheckout.Room AND CartCheckout.Date = CURDATE()
 LEFT JOIN Carts ON CartCheckout.CartID = Carts.CartID
-WHERE Schedule.Period = :Period";
+WHERE Schedule.Period = 1 AND Schedule.Room LIKE :Pattern
+ORDER BY Schedule.Room ASC"
+;
 
-$query_params = array(
-    ':Period' => $period
+$query_params_UP = array(
+    ':Period' => $period,
+    ':Pattern' => '[^1]2___'
 );
-
+$query_params_DOWN = array(
+    ':Period' => $period,
+    ':Pattern' => '[^1]1___'
+);
+$query_params_A = array(
+    ':Period' => $period,
+    ':Pattern' => '1___'
+);
 
 $num_results = 0;
 try
 {
     // Execute the query against the database
-    $stmt = $db->prepare($query);
-    $result = $stmt->execute($query_params);
-    $num_results = $stmt->rowCount();
+    $stmtDOWN = $db->prepare($query);
+    $result = $stmtDOWN->execute($query_params);
+    $num_resultsDOWN = $stmtDOWN->rowCount();
+
+    $stmtUP = $db->prepare($query);
+    $result = $stmtUP->execute($query_params);
+    $num_resultsUP = $stmtUP->rowCount();
+
+    $stmtA = $db->prepare($query);
+    $result = $stmtA->execute($query_params);
+    $num_resultsA = $stmtA->rowCount();
 }
 catch(PDOException $ex)
 {
