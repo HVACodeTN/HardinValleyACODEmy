@@ -140,7 +140,7 @@ if(!empty($_POST))
         {
             //display if failed to run
             // die("Failed to run room query: " . $ex->getMessage());
-            $insertFailMsg = "Could not find Room";
+            $insertFailMsg = "Could not find Room: ".roomString($room);
         }
     }
 
@@ -177,17 +177,17 @@ if(!empty($_POST))
         // Execute the query to create the user
         try
         {
-                $istmt = $db->prepare($iquery);
-                $istmt->execute($iquery_params);
+            $istmt = $db->prepare($iquery);
+            $istmt->execute($iquery_params);
+            $insertSuccess = true; // insert query succesful
         }
         catch(PDOException $ex)
         {
             // Note: On a production website, you should not output $ex->getMessage().
             // It may provide an attacker with helpful information about your code.
-           die("Failed to run insert query: " . $ex->getMessage());
-           $insertFailMsg = "Could not checkout Room: $room";
+        //    die("Failed to run insert query: " . $ex->getMessage());
+           $insertFailMsg = "Could not checkout Room: ".roomString($room);
         }
-        $insertSuccess = true; // insert query succesful
     }
 }
 

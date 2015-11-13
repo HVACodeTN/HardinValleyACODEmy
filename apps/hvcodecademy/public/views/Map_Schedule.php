@@ -5,19 +5,19 @@ require("private.php");
 require("roomProcessor.php");
 
 
-if ($_POST['period']) {
-    $period = $_POST['period'];
-} else {
-    $period = 1;
-}
+
+$period = $_POST['period'];
 
 //Create Query
-$query = "SELECT Schedule.Room, Rooms.RoomName, Users.UserName, Carts.CartName
-FROM `Schedule`
-LEFT JOIN Users ON Schedule.UserID = Users.UserID
+$query = "SELECT Schedule.Room, Rooms.RoomName, Users.UserName, Carts.CartName, RoomCheckout.UserID FROM `Schedule`
 LEFT JOIN Rooms ON Schedule.Room = Rooms.RoomNumber
+
+LEFT JOIN RoomCheckout ON Schedule.Period = RoomCheckout.Period AND Schedule.Room = RoomCheckout.Room AND RoomCheckout.Date = CURDATE()
+LEFT JOIN Users ON RoomCheckout.UserID = Users.UserID OR Schedule.UserID = Users.UserID
+
 LEFT JOIN CartCheckout ON Schedule.UserID = CartCheckout.UserID AND Schedule.Period = CartCheckout.Period AND Schedule.Room = CartCheckout.Room AND CartCheckout.Date = CURDATE()
 LEFT JOIN Carts ON CartCheckout.CartID = Carts.CartID
+
 WHERE Schedule.Period = :Period
 ORDER BY Schedule.Room ASC";
 
@@ -127,11 +127,11 @@ catch(PDOException $ex)
         <fieldset>
                     <label for="">Period:</label>
                     <select id="" name="period" type="text" list="Period" onchange="this.form.submit()" />
-                    <option value="0" label="7AM">
-                    <option value="1" label="First Period">
-                    <option value="2" label="Second Period">
-                    <option value="3" label="Third Period">
-                    <option value="4" label="Fourth Period">
+                    <option value="0" label="7AM" <?php if ($period == 0) {echo "selected='selected'";} ?>>
+                    <option value="1" label="First Period"<?php if ($period == 1) {echo "selected='selected'";} ?>>
+                    <option value="2" label="Second Period"<?php if ($period == 2) {echo "selected='selected'";} ?>>
+                    <option value="3" label="Third Period"<?php if ($period == 3) {echo "selected='selected'";} ?>>
+                    <option value="4" label="Fourth Period"<?php if ($period == 4) {echo "selected='selected'";} ?>>
                     </select>
                 </fieldset>
     </form>
