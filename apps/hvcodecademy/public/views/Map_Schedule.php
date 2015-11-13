@@ -4,12 +4,12 @@ require("private.php");
 
 require("roomProcessor.php");
 
-//TODO: Jackson create variable for each room with "TeacherName" + "Room name" from database based on current time.
-// Rooms include All Classrooms, Labs, Workrooms, Multipurpose room, Library, bus duty (It's a place on the map)
-//$D101="TeacherName" + " D101";
 
-//TODO: Logic to chose Period
-$period = 2;
+if ($_POST['period']) {
+    $period = $_POST['period'];
+} else {
+    $period = 1;
+}
 
 //Create Query
 $query = "SELECT Schedule.Room, Rooms.RoomName, Users.UserName, Carts.CartName
@@ -18,38 +18,28 @@ LEFT JOIN Users ON Schedule.UserID = Users.UserID
 LEFT JOIN Rooms ON Schedule.Room = Rooms.RoomNumber
 LEFT JOIN CartCheckout ON Schedule.UserID = CartCheckout.UserID AND Schedule.Period = CartCheckout.Period AND Schedule.Room = CartCheckout.Room AND CartCheckout.Date = CURDATE()
 LEFT JOIN Carts ON CartCheckout.CartID = Carts.CartID
-WHERE Schedule.Period = :Period AND Schedule.Room LIKE :Pattern
-ORDER BY Schedule.Room ASC"
-;
+WHERE Schedule.Period = :Period
+ORDER BY Schedule.Room ASC";
 
-$query_params_UP = array(
-    ':Period' => $period,
-    ':Pattern' => '[^1]2___'
-);
-$query_params_DOWN = array(
-    ':Period' => $period,
-    ':Pattern' => '[^1]1___'
-);
-$query_params_A = array(
-    ':Period' => $period,
-    ':Pattern' => '1___'
+$query_params = array(
+    ':Period' => $period
 );
 
 $num_results = 0;
 try
 {
     // Execute the query against the database
-    $stmtDOWN = $db->prepare($query);
-    $result = $stmtDOWN->execute($query_params_DOWN);
-    $num_resultsDOWN = $stmtDOWN->rowCount();
-
-    $stmtUP = $db->prepare($query);
-    $result = $stmtUP->execute($query_params_UP);
-    $num_resultsUP = $stmtUP->rowCount();
-
-    $stmtA = $db->prepare($query);
-    $result = $stmtA->execute($query_params_A);
-    $num_resultsA = $stmtA->rowCount();
+    $stmt= $db->prepare($query);
+    $result = $stmt->execute($query_params);
+    $num_results = $stmt->rowCount();
+    //
+    // $stmtUP = $db->prepare($query);
+    // $result = $stmtUP->execute($query_params_UP);
+    // $num_resultsUP = $stmtUP->rowCount();
+    //
+    // $stmtA = $db->prepare($query);
+    // $result = $stmtA->execute($query_params_A);
+    // $num_resultsA = $stmtA->rowCount();
 }
 catch(PDOException $ex)
 {
@@ -126,20 +116,21 @@ catch(PDOException $ex)
         <input type="radio" name="ch" value="2ndfloor" onclick="ChangeBackground(this.value);" />2nd Floor</input>
         <br />
         <br />
-        <input type="radio" name="ch" value="buspickup" onclick="ChangeBackground(this.value);" style="position: relative; left:0px;">					                 Section A and Bus Duty</input>
+        <input type="radio" name="ch" value="buspickup" onclick="ChangeBackground(this.value);" style="position: relative; left:0px;">Section A and Bus Duty</input>
         <br />
         <br />
-	<form action="Map_Schedule.php" method="POST">
-		<fieldset>
-                    <label for="">Period:</label>
-                    <select id="" name="" type="text" list="Period" />
-                    <option value="First Period">
-                    <option value="Second Period">
-                    <option value="Third Period">
-                    <option value="Forth Period">
-                </fieldset>
-	</form>
-    </div>
+    	<form action="Map_Schedule.php" method="POST">
+    		<fieldset>
+                        <label for="">Period:</label>
+                        <select id="" name="period" type="text" list="Period" />
+                        <option value="0" label="7AM">
+                        <option value="1" label="First Period">
+                        <option value="2" label="Second Period">
+                        <option value="3" label="Third Period">
+                        <option value="4" label="Forth Period">
+                        </select>
+                    </fieldset>
+    	</form>
     </div>
     </div>
 
@@ -157,10 +148,9 @@ catch(PDOException $ex)
                 </thead>
                 <tbody>
                     <?php //Iterate Results
-                    echo "num_resultsUP:$num_resultsUP";
-                    for ($i=0; $i < $num_resultsUP; $i++):
+                    for ($i=0; $i < $num_results; $i++):
                         //Process Results
-                        $row = $stmtUP->fetch();?>
+                        $row = $stmt->fetch();?>
                         <tr>
                             <td><?php
                             if ($row['RoomName']) {
@@ -177,6 +167,7 @@ catch(PDOException $ex)
             </table>
             <!-- End PHP Table -->
         </div>
+    </div>
     <?php require "social.php" ?>
 
     <!-- CONTENT-WRAPPER SECTION END-->
