@@ -262,12 +262,7 @@ if ($_SESSION['user']['AccountType']=='Teacher') {
                 <form action="ItemSignUp.php" method="POST">
                     <fieldset style=" align-content:center;">
                         <label for="">Teacher:</label>
-<<<<<<< HEAD
-                        <br />
-                        <input id="" name="" type="text" list="Teacher" value= <?php echo "\"$currentTeacher\"" ?>/>
-=======
                         <input id="" name="teacher" type="text" list="Teacher" value= <?php echo "\"$currentTeacher\"" ?>/>
->>>>>>> origin/master
                         <datalist id="Teacher" placeholder="Teacher" class="dropdown">
                             <!--Teachers-->
                             <?php
@@ -283,12 +278,7 @@ if ($_SESSION['user']['AccountType']=='Teacher') {
                     </br>
                     <fieldset>
                         <label for="">Room:</label>
-<<<<<<< HEAD
-                        <br />
-                        <input id="" name="" type="text" list="Room"/>
-=======
                         <input id="" name="room" type="text" list="Room"/>
->>>>>>> origin/master
                         <datalist id="Room" placeholder="Room" class="dropdown">
                         <?php foreach ($rooms as $key => $row) {
                             echo "<option value='";
@@ -305,12 +295,7 @@ if ($_SESSION['user']['AccountType']=='Teacher') {
                     </br>
                     <fieldset>
                         <label for="">Period:</label>
-<<<<<<< HEAD
-                        <br />
-                        <input id="" name="" type="text" list="Period" />
-=======
                         <input id="" class="dropdown" name="period" type="text" list="Period" />
->>>>>>> origin/master
                         <datalist id="Period" placeholder="Period">
                             <option value="0">7am Class</option>
                             <option value="1">First Period</option>
@@ -324,68 +309,6 @@ if ($_SESSION['user']['AccountType']=='Teacher') {
                     </br>
                     <fieldset>
                 	       <label for="">Item:</label>
-<<<<<<< HEAD
-                           <br />
-                           <input id="" name="select item" type="text" list="SignOutItems" />
-                                <datalist id="SignOutItems" placeholder="select">
-                                    <option value="A Cart" label="15 Labtops">
-                                    <option value="B Cart" label="15 Labtops">
-                                    <option value="C Cart" label="15 Labtops">
-                                    <option value="D Cart" label="15 Labtops">
-                                    <option value="E Cart" label="15 Labtops">
-                                    <option value="F Cart" label="15 Labtops">
-                                    <option value="G Cart" label="30 Labtops">
-                                    <option value="H Cart" label="30 Labtops">
-                                    <option value="I Cart" label="30 Labtops">
-                                    <option value="Special Ed 1" label="15 Labtop">
-                                    <option value="Special Ed 2" label="15 Labtop">
-                                    <option value="Ipad Cart" Label="10 Ipads">
-                                    <option value="Tv" label="example">
-                                    <option value="Projector" label="example">
-                                    <option value="Lab Equipment" label="example">
-                                    <option value="">
-                                    <option value="">
-                                    <option value="">
-                                    <option value="">
-                                    <option value="">
-                                    <option value="">
-                                    <option value="">
-                                    <option value="">
-                                    <option value="">
-                                    <option value="">
-                                    <option value="">
-                                    <option value="">
-                                    <option value="">
-                                </datalist>
-                   </fieldset>
-                   <fieldset>
-                		<label for="">Date:</label>
-                        <br />
-                        	<div id="datetimepicker" class="input-append date">
-    							<input type="text"></input>
-    								<span class="add-on">
-        								<i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
-    								</span>
-            				</div>
-                		<script type="text/javascript"
-                            src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js">
-                        </script>
-                        <script type="text/javascript"
-                            src="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js">
-                        </script>
-                        <script type="text/javascript"
-                            src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.min.js">
-                        </script>
-                        <script type="text/javascript"
-                            src="http://tarruda.github.com/bootstrap-datetimepicker/assets/js/bootstrap-datetimepicker.pt-BR.js">
-                        </script>
-                        <script type="text/javascript">
-                            $('#datetimepicker').datetimepicker({
-                              format: 'dd/MM/yyyy hh:mm:ss',
-                              language: 'pt-BR'
-                            });
-                        </script>
-=======
                            <input id="" name="item" type="text" list="SignOutItems" />
                             <datalist id="SignOutItems" placeholder="select">
                                 <?php foreach ($carts as $key => $row): ?>
@@ -396,7 +319,6 @@ if ($_SESSION['user']['AccountType']=='Teacher') {
                                     ?>'>
                                 <?php endforeach; ?>
                             </datalist>
->>>>>>> origin/master
                     </fieldset>
                     </br>
                     <fieldset>
