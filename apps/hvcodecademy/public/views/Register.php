@@ -27,10 +27,10 @@
         // filter_var is a useful PHP function for validating form input, see:
         // http://us.php.net/manual/en/function.filter-var.php
         // http://us.php.net/manual/en/filter.filters.php
-        // if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))
-        // {
-        //     die("Invalid E-Mail Address");
-        // }
+         if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))
+         {
+             die("Invalid E-Mail Address");
+         }
 
         // We will use this SQL query to see whether the username entered by the
         // user is already in use.  A SELECT query is used to retrieve data from the database.
@@ -232,27 +232,39 @@
             // It may provide an attacker with helpful information about your code.
            die("Failed to run query3: " . $ex->getMessage());
         }
-
+        $userCreated = false;
         try
         {
             // Execute the query to create the user
             $stmt4 = $db->prepare($query4);
             $result4 = $stmt4->execute($query4_params);
+            $userCreated = true;
         }
         catch(PDOException $ex)
         {
             // Note: On a production website, you should not output $ex->getMessage().
             // It may provide an attacker with helpful information about your code.
             die("Failed to run query4: " . $ex->getMessage());
+            $userCreated = false;
+        }
+        if($userCreated)
+        {
+            include './PHPmailer/Send_Mail.php';
+            $to=$_POST['email'];
+            $subject="Email verification";
+            $body='Hi, <br/> <br/> We need to make sure you are human. Please verify your email and get started using your Website account. <br/> <br/> <a href="'.$base_url.'activation/'.$activation.'">'.$base_url.'activation/'.$activation.'</a>';
+
+            Send_Mail($to,$subject,$body);
+            $msg= "Registration successful, please activate email."; 
         }
 
         // This redirects the user back to the login page after they register
-        header("Location: Login.php");
+//        header("Location: Login.php");
 
         // Calling die or exit after performing a redirect using the header function
         // is critical.  The rest of your PHP script will continue to execute and
         // will be sent to the user if you do not die or exit.
-        die("Redirecting to Login.php");
+        //die("Redirecting to Login.php");
     }
 
 ?>
@@ -277,9 +289,9 @@
                         Username:<br />
                         <input type="text" name="username" value="" />
                         <br /><br />
-                        <!--    E-Mail:<br />
+                        E-Mail:<br />
                         <input type="text" name="email" value="" />
-                        <br /><br /> -->
+                        <br /><br />
                         Password:<br />
                         <input type="password" name="password" value="" />
                         <br /><br />
