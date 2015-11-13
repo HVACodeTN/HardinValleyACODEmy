@@ -207,7 +207,7 @@ if ($_SESSION['user']['AccountType']=='Teacher') {
 
     <?php require 'navHeader.php'; ?>
 
-    <div class="content-wrapper">
+    <div class="content-wrapper" align="center">
         <div class="container">
             <div class="main">
             <!--Code for if select is wanted over datalist

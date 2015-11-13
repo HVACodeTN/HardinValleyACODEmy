@@ -129,7 +129,16 @@ catch(PDOException $ex)
         <input type="radio" name="ch" value="buspickup" onclick="ChangeBackground(this.value);" style="position: relative; left:0px;">					                 Section A and Bus Duty</input>
         <br />
         <br />
-
+	<form action="Map_Schedule.php" method="POST">
+		<fieldset>
+                    <label for="">Period:</label>
+                    <select id="" name="" type="text" list="Period" />
+                    <option value="First Period">
+                    <option value="Second Period">
+                    <option value="Third Period">
+                    <option value="Forth Period">
+                </fieldset>
+	</form>
     </div>
     <!-- Add PHP Table -->
     <table class="table table-border fixed-bottom" style="position:relative; bottom:-300px;">
