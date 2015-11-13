@@ -134,9 +134,9 @@ catch(PDOException $ex)
     </div>
     </div>
 
-	<div class="info-table">
+	<div class="info-table" style="padding-top: 1000px">
         <!-- Add PHP Table -->
-            <table class="table table-border fixed-bottom" style="padding-top: 900px">
+            <table class="table table-border">
                 <h1>Schedule</h1>
                 <thead>
                     <tr>
