@@ -85,10 +85,6 @@ $rows = $stmt->fetchAll();
             <?php require "social.php" ?>
         </div>
       </div>
-            <?php require "social.php" ?>
-
-            <!-- CONTENT-WRAPPER SECTION END-->
-       </div>
     	<?php require "bottomBar.php" ?>
 
 		<?php require "LinkScript.php" ?>

@@ -18,13 +18,13 @@ require("private.php");
 
             <div class="main">
                 <center>
-                    <h1><?php echo "Welcome, ".$_SESSION['user']['UserName']; ?></h1>
+                    <h1><?php echo "Welcome, ".$_SESSION['user']['UserName']."!"; ?></h1>
                     <br />
 		    <h2>Thank you for useing Hardin Valley ACODEmy's application.<h2>
 		    <br />
                     <p>This is a school schedule appication. It is built to show you a Map schedule with a table that includes. One, where every Teacher is during each class period. Two, if that teacher has signed up to be in a different room then normal. Lastly, it provides information on where laptop carts are during each class period.</p>
                     <br />
-		    <p> To Students: You are only allowed the permissions to look at the home, map, and edit pages once logged in to the site. 
+		    <p> To Students: You are only allowed the permissions to look at the home, map, and edit pages once logged in to the site.
 		    <br />
                     <p>To Teachers: You are allowed more permission then the adverage user (student). This allows you to sign up for rooms and for carts for different class periods as long as they haven't already been signout.</p>
 		    <br />
@@ -38,10 +38,9 @@ require("private.php");
 
             </div>
 
-            <!-- CONTENT-WRAPPER SECTION END-->
-           </div>
             <?php require "social.php" ?>
 
+           </div>
             <!-- CONTENT-WRAPPER SECTION END-->
        </div>
     	<?php require "bottomBar.php" ?>

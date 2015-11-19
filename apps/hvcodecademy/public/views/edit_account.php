@@ -3,17 +3,6 @@
 	//privates the page
     require("private.php");
 
-    // At the top of the page we check to see whether the user is logged in or not
-    if(empty($_SESSION['user']))
-    {
-        // If they are not, we redirect them to the login page.
-        header("Location: Login.php");
-
-        // Remember that this die statement is absolutely critical.  Without it,
-        // people can view your members-only content without logging in.
-        die("Redirecting to Login.php");
-    }
-
     // This if statement checks to determine whether the edit form has been submitted
     // If it has, then the account updating code is run, otherwise the form is displayed
     if(!empty($_POST))
@@ -65,13 +54,6 @@
             die("Failed to run query: " . $ex->getMessage());
         }
 
-        // This redirects the user back to the members-only page after they register
-        header("Location: index.php");
-
-        // Calling die or exit after performing a redirect using the header function
-        // is critical.  The rest of your PHP script will continue to execute and
-        // will be sent to the user if you do not die or exit.
-        die("Redirecting to index.php");
     }
 
 ?>

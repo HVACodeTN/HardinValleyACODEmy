@@ -5,8 +5,12 @@ require("private.php");
 require("roomProcessor.php");
 
 
+if ($_POST) {
+    $period = $_POST['period'];
+} else {
+    $period = 0;
+}
 
-$period = $_POST['period'];
 
 //Create Query
 $query = "SELECT Schedule.Room, Rooms.RoomName, Users.UserName, Carts.CartName, RoomCheckout.UserID FROM `Schedule`
@@ -168,8 +172,8 @@ catch(PDOException $ex)
             </table>
             <!-- End PHP Table -->
         </div>
-    </div>
     <?php require "social.php" ?>
+    </div>
 
     <!-- CONTENT-WRAPPER SECTION END-->
     <?php require "bottomBar.php" ?>

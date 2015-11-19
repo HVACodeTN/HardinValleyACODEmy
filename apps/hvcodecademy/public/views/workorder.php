@@ -2,9 +2,7 @@
 
 require("private.php");
 
-
-
-
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -14,7 +12,6 @@ require("private.php");
 </head>
 
 <body>
-	<img src="\views\assets\img\Header.jpg" alt="LOGO" style="width:100%;height:10%"/>
 
 	<?php require 'navHeader.php'; ?>
 	<div class="content-wrapper">
