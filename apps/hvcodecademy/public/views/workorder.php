@@ -13,7 +13,11 @@ require("private.php");
 
 <body>
 
+<<<<<<< HEAD
 	<?php require 'navHeader.php';?>
+=======
+	<?php require 'navHeader.php'; ?>
+>>>>>>> origin/master
 	<div class="content-wrapper">
 		<div class="container">
 
@@ -22,13 +26,20 @@ require("private.php");
 					<!-- Center everything within the from -->
 					<center>
 						<h1>Work Order</h1>
+<<<<<<< HEAD
 						
+=======
+>>>>>>> origin/master
 						<fieldset>
 							<!-- Work Order Input -->
 							<p>
 								<label for="">Problem:</label>
 								<br />
+<<<<<<< HEAD
 								<textarea rows="10" cols="80" name="problem">
+=======
+								<textarea rows="10" cols="80">
+>>>>>>> origin/master
 
 								</textarea>
 							</p>
@@ -49,6 +60,7 @@ require("private.php");
 
 
 		<?php require "LinkScript.php" ?>
+<<<<<<< HEAD
 		<?php 
 				require("private.php");
 				$currentTeacher = "";
@@ -90,6 +102,8 @@ Problem:
                }	
 				}
 			?>	
+=======
+>>>>>>> origin/master
 
 	</body>
 	</html>
