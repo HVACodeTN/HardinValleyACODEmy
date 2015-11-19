@@ -19,7 +19,8 @@
             SELECT
                 UserID,
                 UserName,
-                AccountType
+                AccountType,
+                Activated
             FROM Users
             WHERE
                 UserName = :UserName
@@ -111,11 +112,24 @@
             // We will check this index on the private members-only page to determine whether
             // or not the user is logged in.  We can also use it to retrieve
             // the user's details.
-            $_SESSION['user'] = $getUserId;
+            $Active = 1;
 
-            // Redirect the user to the private members-only page.
-            header("Location: /views/index.php");
-            die("Redirecting to: index.php");
+                if($getUserId["Activated"] != $Active)
+                {
+                    // If they do, then we flip this to true
+                    $insertFailMsg = "This account has not been Activated yet";
+                    //header("Location: /views/Login.php");
+                    //die("This account has not been Activated yet");
+                }
+                else
+                {
+                    $_SESSION['user'] = $getUserId;
+
+                    // Redirect the user to the private members-only page.
+                    header("Location: /views/index.php");
+                    die("Redirecting to: index.php");
+                }
+                
         }
         else
         {
