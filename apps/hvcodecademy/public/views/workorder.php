@@ -14,6 +14,8 @@ require("private.php");
 </head>
 
 <body>
+	<img src="\views\assets\img\Header.jpg" alt="LOGO" style="width:100%;height:10%"/>
+
 	<?php require 'navHeader.php'; ?>
 	<div class="content-wrapper">
 		<div class="container">
@@ -28,10 +30,12 @@ require("private.php");
 							<p>
 								<label for="">Problem:</label>
 								<br />
-								<input type="text" name="" value="" />
+								<textarea rows="10" cols="80">
+
+								</textarea>
 							</p>
 
-							<input type="submit" value="WorkOrder">
+							<input type="submit" value="Submit">
 						</fieldset>
 					</center>
 				</form>

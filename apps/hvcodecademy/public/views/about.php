@@ -30,7 +30,8 @@ require("private.php");
               <h2>About the Project</h2>
               <p>
               To do this, we created a school schedule and map to help schools
-              keep track of things around school, such as laptop carts and room assignments.
+              keep track of things around campus, such as laptop carts and room assignments. It tracks all the teachers
+	      with what room they are in and allows others to find them efficiently.
               </p>
               <br>
               <h2>About the Team</h2>
@@ -47,12 +48,12 @@ require("private.php");
             <div class="container">
               <div class="row row-centered">
                 <div class="col-xs-12 col-centered">
-                  <center><div class="thumbnail"> <img src="assets/img/me3.jpg" width="184" height="183" alt=""/>
+                  <center><div class="thumbnail"> <img src="assets/img/me3.jpg" width="200" height="200" alt="Tym Brandel"/>
                     <div class="caption">
                         <h3> Tym Brandel
                           <br>
                           <small>Team Leader</small> </h3>
-                          <p>Head HTML Programmer,Head Designer, and Social Media.
+                          <p>Head HTML Programmer, Head Designer, and Social Media.
                           </p>
                     </div>
                             </div>
@@ -62,7 +63,7 @@ require("private.php");
                 </div>
               <div class="row row-centered">
                 <div class="col-xs-6 col-centered">
-                  <center><div class="thumbnail"> <img src="assets/img/Jackson.jpg" width="516" height="290.25" alt=" "/>
+                  <center><div class="thumbnail"> <img src="assets/img/Jackson.jpg" width="200" height="200" alt="Jackson Smith"/>
 <div class="caption">
                     <h3> Jackson Smith
                           <br>
@@ -76,7 +77,7 @@ require("private.php");
                       <br><br><br>
                 </div>
                 <div class="col-xs-6 col-centered">
-                  <center><div class="thumbnail"> <img src="assets/img/Sean Toll.jpg" width="398.3333333333333" height="531" alt=""/>
+                  <center><div class="thumbnail"> <img src="assets/img/Sean Toll.jpg" width="200" height="200" alt="Sean Toll"/>
 <div class="caption">
                     <h3> Sean Toll
                           <br>
@@ -92,7 +93,7 @@ require("private.php");
               </div>
               <div class="row row-centered">
                 <div class="col-xs-6 col-centered">
-                  <center><div class="thumbnail"> <img src="assets/img/Joey Townsand.jpg" width="480" height="640" alt=""/>
+                  <center><div class="thumbnail"> <img src="assets/img/Joey Townsand.jpg" width="200" height="200" alt="Joey Townsand"/>
                     <div class="caption">
                         <h3> Joey Townsend
                           <br>
@@ -106,7 +107,7 @@ require("private.php");
                       <br><br><br>
                 </div>
                 <div class="col-xs-6 col-centered">
-                  <center><div class="thumbnail"> <img src="assets/img/Jack Anderson.jpg" width="168" height="483" alt=""/>
+                  <center><div class="thumbnail"> <img src="assets/img/Jack Anderson.jpg" width="200" height="200" alt="Jack Anderson"/>
                     <div class="caption">
                         <h3> Jack Anderson
                           <br>
