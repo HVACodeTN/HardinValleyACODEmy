@@ -335,10 +335,9 @@ if ($_SESSION['user']['AccountType']=='Teacher') {
             <div class="panel-body">
 
             </div>
-            <?php require "social.php" ?>
 
-      </div>
             <?php require "social.php" ?>
+      </div>
 
             <!-- CONTENT-WRAPPER SECTION END-->
        </div>
