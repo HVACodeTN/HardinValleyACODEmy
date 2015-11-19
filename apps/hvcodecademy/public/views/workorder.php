@@ -13,11 +13,7 @@ require("private.php");
 
 <body>
 
-<<<<<<< HEAD
-	<?php require 'navHeader.php';?>
-=======
 	<?php require 'navHeader.php'; ?>
->>>>>>> origin/master
 	<div class="content-wrapper">
 		<div class="container">
 
@@ -26,20 +22,12 @@ require("private.php");
 					<!-- Center everything within the from -->
 					<center>
 						<h1>Work Order</h1>
-<<<<<<< HEAD
-						
-=======
->>>>>>> origin/master
 						<fieldset>
 							<!-- Work Order Input -->
 							<p>
 								<label for="">Problem:</label>
 								<br />
-<<<<<<< HEAD
-								<textarea rows="10" cols="80" name="problem">
-=======
 								<textarea rows="10" cols="80">
->>>>>>> origin/master
 
 								</textarea>
 							</p>
@@ -60,50 +48,6 @@ require("private.php");
 
 
 		<?php require "LinkScript.php" ?>
-<<<<<<< HEAD
-		<?php 
-				require("private.php");
-				$currentTeacher = "";
-				if ($_SESSION['user']['AccountType']=='Teacher')
-				{
-    				$currentTeacher = $_SESSION['user']['UserName'];
-				}
-				
-				
-				if(!empty($_POST))
-    			{
-					if(empty($_POST['problem']))
-        			{
-            			die("Please enter a Problem.");
-        			}
-					
-					$message = 'A New Work Order has been created, the following credentials were used.
-
-------------------------
-Teacher: '.$currentTeacher.'
-Problem:    
-'.$_POST['problem'].'
-------------------------
-'; 
-                
-                $headers = "From:noreply@hvcodecademy.projects.codetn.org" . "\r\n"; // Set from headers
-	           if(@mail("HardinValleyACODEmy@gmail.com","New Work Order",$message, $header)) 
-	           {
-                   header("Location: Login.php");
-                   die("Work Order Creation Successful
-                   Redirecting to Login.php");
-  	               
-	           }
-               else
-               {
-                   header("Location: Login.php");
-                   die("Work Order Creation Not Successful
-                   Redirecting to Login.php");
-               }	
-				}
-			?>	
-=======
->>>>>>> origin/master
 
 	</body>
 	</html>

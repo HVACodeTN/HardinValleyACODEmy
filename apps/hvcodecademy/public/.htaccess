@@ -1,7 +1,0 @@
-# BEGIN User Auth
-AuthUserFile /srv/users/hvcodecademy/apps/hvcodecademy/.htpasswd
-AuthGroupFile /dev/null
-AuthName 'CodeTN Team Site'
-AuthType Basic
-Require valid-user
-# END User Auth
