@@ -210,7 +210,7 @@ if ($_SESSION['user']['AccountType']=='Teacher') {
                     <fieldset>
                         <label for="">Period:</label>
                         <input id="" class="dropdown" name="period" type="text" list="Period" />
-                        <datalist id="Period" placeholder="Period">
+                        <datalist id="Period" placeholder="Period" class="dropdown">
                             <option value="0">7am Class</option>
                             <option value="1">First Period</option>
                             <option value="2">Second Period</option>

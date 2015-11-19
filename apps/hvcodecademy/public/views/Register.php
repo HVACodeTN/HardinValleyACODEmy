@@ -27,10 +27,10 @@
         // filter_var is a useful PHP function for validating form input, see:
         // http://us.php.net/manual/en/function.filter-var.php
         // http://us.php.net/manual/en/filter.filters.php
-        // if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))
-        // {
-        //     die("Invalid E-Mail Address");
-        // }
+         if(!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))
+         {
+             die("Invalid E-Mail Address");
+         }
 
         // We will use this SQL query to see whether the username entered by the
         // user is already in use.  A SELECT query is used to retrieve data from the database.
@@ -158,11 +158,17 @@
             INSERT INTO Users (
                 UserName,
                 UserID,
-                AccountType
+                AccountType,
+                Email,
+                Activated,
+                URLsalt
             ) VALUES (
                 :UserName,
                 :UserID,
-                :AccountType
+                :AccountType,
+                :email,
+                :activated,
+                :URLsalt
             ) ";
 
          $query4 = "
@@ -186,7 +192,7 @@
         // http://en.wikipedia.org/wiki/Brute-force_attack
         // http://en.wikipedia.org/wiki/Rainbow_table
         $salt = dechex(mt_rand(0, 2147483647)) . dechex(mt_rand(0, 2147483647));
-
+        $URLsalt = dechex(mt_rand(0, 2147483647)) . dechex(mt_rand(0, 2147483647));
         // This hashes the password with the salt so that it can be stored securely
         // in your database.  The output of this next statement is a 64 byte hex
         // string representing the 32 byte sha256 hash of the password.  The original
@@ -211,7 +217,10 @@
         $query3_params = array(
             ':UserName' => $_POST['username'],
             ':UserID' => $UserID,
-            ':AccountType' => $AccountType
+            ':AccountType' => $AccountType,
+            ':email' => $_POST['email'],
+            ':activated' => 0,
+            ':URLsalt' => $URLsalt
         );
 
         $query4_params = array(
@@ -232,27 +241,70 @@
             // It may provide an attacker with helpful information about your code.
            die("Failed to run query3: " . $ex->getMessage());
         }
-
+        $userCreated = false;
         try
         {
             // Execute the query to create the user
             $stmt4 = $db->prepare($query4);
             $result4 = $stmt4->execute($query4_params);
+            $userCreated = true;
         }
         catch(PDOException $ex)
         {
             // Note: On a production website, you should not output $ex->getMessage().
             // It may provide an attacker with helpful information about your code.
             die("Failed to run query4: " . $ex->getMessage());
+            $userCreated = false;
+        }
+        if($userCreated)
+        {
+                $email = $_POST['email'];
+        		$message = 'Thanks for signing up!
+                Your account has been created, you can login with the following credentials.
+ 
+                ------------------------
+                Username: '.$_POST['username'].'
+                Password: '.$_POST['password'].'
+                ------------------------
+ 
+                Your account will be activated within 24 hours.';
+                //http:www.hvcodecademy.projects.codetn.org/SuperRedButton/CodeRed/verify.php?email='.$email.'&hash='.$hash.'' Our message above including the link
+                
+                $message2 = 'A New account has been created, the following credentials were used. You have activated the account by pressing the url below.
+ 
+                ------------------------
+                Email:    '.$_POST['email'].'
+                Username: '.$_POST['username'].'
+                ------------------------
+ 
+                http://hvcodecademy.projects.codetn.org/views/verify.php?hash='.$URLsalt.''; // Our message above including the link
+                
+                $headers = "From:noreply@hvcodecademy.projects.codetn.org" . "\r\n"; // Set from headers
+				//include "dbConfig.php";   
+                $subject = "Welcome to hvcodecademy!";
+	            mail("HardinValleyACODEmy@gmail.com","New Account",$message2, $header);
+	           if(@mail($email, $subject, $message, $headers))
+	           {
+                   header("Location: Login.php");
+                   die("Account Creation Successful
+                   Redirecting to Login.php");
+  	               
+	           }
+               else
+               {
+                   header("Location: Login.php");
+                   die("Account Creation Not Successful
+                   Redirecting to Login.php");
+               }
         }
 
         // This redirects the user back to the login page after they register
-        header("Location: Login.php");
+//        header("Location: Login.php");
 
         // Calling die or exit after performing a redirect using the header function
         // is critical.  The rest of your PHP script will continue to execute and
         // will be sent to the user if you do not die or exit.
-        die("Redirecting to Login.php");
+        //die("Redirecting to Login.php");
     }
 
 ?>
@@ -277,9 +329,9 @@
                         Username:<br />
                         <input type="text" name="username" value="" />
                         <br /><br />
-                        <!--    E-Mail:<br />
+                        E-Mail:<br />
                         <input type="text" name="email" value="" />
-                        <br /><br /> -->
+                        <br /><br />
                         Password:<br />
                         <input type="password" name="password" value="" />
                         <br /><br />

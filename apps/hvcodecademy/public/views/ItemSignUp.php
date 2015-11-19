@@ -140,7 +140,7 @@ if(!empty($_POST))
         {
             //display if failed to run
             // die("Failed to run room query: " . $ex->getMessage());
-            $insertFailMsg = "Could not find Room";
+            $insertFailMsg = "Could not find Room: ".roomString($room);
         }
     }
 
@@ -177,17 +177,17 @@ if(!empty($_POST))
         // Execute the query to create the user
         try
         {
-                $istmt = $db->prepare($iquery);
-                $istmt->execute($iquery_params);
+            $istmt = $db->prepare($iquery);
+            $istmt->execute($iquery_params);
+            $insertSuccess = true; // insert query succesful
         }
         catch(PDOException $ex)
         {
             // Note: On a production website, you should not output $ex->getMessage().
             // It may provide an attacker with helpful information about your code.
-           die("Failed to run insert query: " . $ex->getMessage());
-           $insertFailMsg = "Could not checkout Room: $room";
+        //    die("Failed to run insert query: " . $ex->getMessage());
+           $insertFailMsg = "Could not checkout Room: ".roomString($room);
         }
-        $insertSuccess = true; // insert query succesful
     }
 }
 
@@ -207,9 +207,9 @@ if ($_SESSION['user']['AccountType']=='Teacher') {
 
     <?php require 'navHeader.php'; ?>
 
-    <div class="content-wrapper">
+    <div class="content-wrapper" align="center">
         <div class="container">
-            <div class="main" align="center">
+            <div class="main">
             <!--Code for if select is wanted over datalist
             <form action="cartsignup.php" method="POST">
                 <fieldset>
@@ -260,7 +260,7 @@ if ($_SESSION['user']['AccountType']=='Teacher') {
                 <br />
             <?php endif; ?>
                 <form action="ItemSignUp.php" method="POST">
-                    <fieldset>
+                    <fieldset style=" align-content:center;">
                         <label for="">Teacher:</label>
                         <input id="" name="teacher" type="text" list="Teacher" value= <?php echo "\"$currentTeacher\"" ?>/>
                         <datalist id="Teacher" placeholder="Teacher" class="dropdown">
@@ -335,10 +335,9 @@ if ($_SESSION['user']['AccountType']=='Teacher') {
             <div class="panel-body">
 
             </div>
-            <?php require "social.php" ?>
 
-      </div>
             <?php require "social.php" ?>
+      </div>
 
             <!-- CONTENT-WRAPPER SECTION END-->
        </div>

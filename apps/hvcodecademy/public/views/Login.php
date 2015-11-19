@@ -19,7 +19,8 @@
             SELECT
                 UserID,
                 UserName,
-                AccountType
+                AccountType,
+                Activated
             FROM Users
             WHERE
                 UserName = :UserName
@@ -48,7 +49,7 @@
         catch(PDOException $ex)
         {
             //display if failed to run
-            die("Failed to run query: " . $ex->getMessage());
+            $insertFailMsg = "Failed to run query";;
         }
 
         $getUserId = $stmt->fetch();
@@ -67,7 +68,7 @@
             catch(PDOException $ex)
             {
                 //display if failed to run
-                die("Failed to run query2: " . $ex->getMessage());
+                $insertFailMsg = "Failed to run query2";;
             }
 
 
@@ -111,17 +112,28 @@
             // We will check this index on the private members-only page to determine whether
             // or not the user is logged in.  We can also use it to retrieve
             // the user's details.
-            $_SESSION['user'] = $getUserId;
+            $Active = 1;
 
-            // Redirect the user to the private members-only page.
-            header("Location: /views/index.php");
-            die("Redirecting to: index.php");
+                if($getUserId["Activated"] != $Active)
+                {
+                    // If they do, then we flip this to true
+                    $insertFailMsg = "This account has not been Activated yet";
+                    //header("Location: /views/Login.php");
+                    //die("This account has not been Activated yet");
+                }
+                else
+                {
+                    $_SESSION['user'] = $getUserId;
+
+                    // Redirect the user to the private members-only page.
+                    header("Location: /views/index.php");
+                    die("Redirecting to: index.php");
+                }
+                
         }
         else
         {
-            // Tell the user they failed
-            print("Login Failed.");
-
+            $insertFailMsg = "Login Failed.";
             // Show them their username again so all they have to do is enter a new
             // password.  The use of htmlentities prevents XSS attacks.  You should
             // always use htmlentities on user submitted values before displaying them
@@ -162,6 +174,10 @@
                                 <input type="password" name="password" id="passwordInput" value="">
                             </p>
 
+                            <?php if ($insertFailMsg): ?>
+                                <h3><?php echo $insertFailMsg ?></h3>
+                                <br />
+                            <?php endif; ?>
                             <!-- Select if used for more then one school -->
                             <!-- note we made fake school names -->
                             <!--

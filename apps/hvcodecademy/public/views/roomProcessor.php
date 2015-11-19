@@ -21,7 +21,7 @@
         //this function takes a string (A234), and returns  number (1234).
         $letters = array('A','B','C','D','E','F');
         if (strlen($roomString)==4) { //must be 4 long
-            $letterNum = array_search(substr($roomString,0,1),$letters);
+            $letterNum = array_search(substr($roomString,0,1),$letters)+1;
             $number = substr($roomString,1,3);
             return intval($letterNum.$number);
         }
